@@ -1685,10 +1685,9 @@ public class main extends javax.swing.JFrame {
      */
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        String username = loginUsernameField.getText().trim(); 
+        String username = loginUsernameField.getText().trim();
         String password = new String(loginPasswordField.getPassword()).trim();
-        
-        
+
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Both username and password are required.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -1753,11 +1752,6 @@ public class main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SignupBtnActionPerformed
 
-    private boolean isValidEmail(String email) {
-        // regex for email validation
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
-        return email.matches(emailRegex);
-    }
 
     private void GotoSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GotoSingupActionPerformed
         // TODO add your handling code here:
@@ -1780,8 +1774,9 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminAddBtnActionPerformed
 
     /**
-     * Method to handle the action performed when a selection is made in thecombo box. It updates the plan details based on the selected option.
-     * 
+     * Method to handle the action performed when a selection is made in
+     * thecombo box. It updates the plan details based on the selected option.
+     *
      * @param evt The event triggered when an item is selected in the combo box
      */
     private void CustomerInternetPlanComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerInternetPlanComboBoxActionPerformed
@@ -1836,19 +1831,17 @@ public class main extends javax.swing.JFrame {
         // Check if any field is empty
         if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty() || price.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
-        
-        
+
         if (!isValidEmail(email)) {
             JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
-        
-        
+
         if (!isValidPhoneNumber(phoneNumber)) {
             JOptionPane.showMessageDialog(this, "Please enter a valid phone number (digits only).", "Error", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
 
         try {
@@ -1868,13 +1861,18 @@ public class main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "An error occurred while adding the customer: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_CustomerAddBtnAdminActionPerformed
-    
+
     private boolean isValidPhoneNumber(String phoneNumber) {
         // Check if the phone number contains 10 digits
-        return phoneNumber.matches("\\d{10}"); 
+        return phoneNumber.matches("^\\d{10}$");
     }
-    
-    
+
+    private boolean isValidEmail(String email) {
+        // regex for email validation
+        String emailRegex = "^[\\w\\.]+@[a-zA-Z\\d\\.]+\\.[a-zA-Z]{2,6}$";
+        return email.matches(emailRegex);
+    }
+
     private void UpdateCustomerDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateCustomerDetailsBtnActionPerformed
         // TODO add your handling code here:
         String customerId = updateCustomerId.getText().trim();
@@ -1887,7 +1885,7 @@ public class main extends javax.swing.JFrame {
 
         if (customerId.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty() || price.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
 
         if (customerController.updateCustomer(customerId, name, phoneNumber, internetPlan, speed, price)) {
