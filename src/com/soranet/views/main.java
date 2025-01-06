@@ -1,19 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.soranet.views;
+
+import com.soranet.controllers.CustomerController;
+import com.soranet.controllers.UserAuth;
+import com.soranet.model.CustomerModel;
+import com.soranet.model.InternetModel;
+import com.soranet.controllers.PriceController;
+import com.soranet.controllers.algorithms.SelectionSort;
+import com.soranet.controllers.algorithms.InsertionSort;
+import com.soranet.controllers.algorithms.MergeSort;
+import com.soranet.controllers.algorithms.BinarySearch;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import com.soranet.controllers.UserAuth;
-import com.soranet.controllers.CustomerController;
-import com.soranet.model.CustomerModel;
 import javax.swing.table.DefaultTableModel;
-import com.soranet.model.InternetModel;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTable;
+import java.awt.Color;
+import java.awt.HeadlessException;
 
 /**
  *
@@ -24,18 +27,32 @@ public class main extends javax.swing.JFrame {
     private java.awt.CardLayout cardLayout;
     private final UserAuth userAuth = new UserAuth();
     private final CustomerController customerController;
-    private final List<InternetModel> plans;
+    private final PriceController priceController = new PriceController();
+    private final SelectionSort selectionsort;
+    private final InsertionSort insertionSort;
+    private final MergeSort mergeSort;
+    private final BinarySearch binarySearch;
 
     /**
      * Creates new form main
      */
     public main() {
-        plans = new ArrayList<>();
-        customerController = new CustomerController();
+
         initComponents();
         initializeLayout();
-        populateTable(jTable2);
-        populateTable(AdminUpdateTable);
+
+        customerController = new CustomerController();
+        binarySearch = new BinarySearch();
+        selectionsort = new SelectionSort();
+        insertionSort = new InsertionSort();
+        mergeSort = new MergeSort();
+        searchBtn.setBackground(new Color(0, 123, 255));
+        searchBtn.setForeground(Color.WHITE);
+        searchBtnUpdate.setBackground(new Color(0, 123, 255));
+        searchBtnUpdate.setForeground(Color.WHITE);
+        populateCustomerTable(TableAdminAdd);
+        populateCustomerTable(AdminUpdateTable);
+
     }
 
     /**
@@ -100,6 +117,31 @@ public class main extends javax.swing.JFrame {
         heroSectionjLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         ImageHeroSection = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
         AdminPage = new javax.swing.JPanel();
         AdminPagePnl = new javax.swing.JPanel();
         adminNavpnl = new javax.swing.JPanel();
@@ -109,30 +151,37 @@ public class main extends javax.swing.JFrame {
         AdminUpdateBtn = new javax.swing.JButton();
         AdminAddBtn = new javax.swing.JButton();
         AdminLogoutBtn = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        AdminHomeBtn = new javax.swing.JButton();
         adminContainer = new javax.swing.JPanel();
         AdminUpdatePage = new javax.swing.JPanel();
-        ScrollPanelAdminUpdate = new javax.swing.JScrollPane();
-        AdminUpdateTable = new javax.swing.JTable();
+        AdminUpdateScrollPane = new javax.swing.JScrollPane();
+        CustomerUpdatePnl = new javax.swing.JPanel();
         DetailForm1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        customerId = new javax.swing.JLabel();
         updateCustomerId = new javax.swing.JTextField();
         updateCustomerName = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         updatecustomerEmail = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
         updatePhoneNumber = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        phone = new javax.swing.JLabel();
+        internetPlan = new javax.swing.JLabel();
         updateInternetSpeed = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
+        speed = new javax.swing.JLabel();
         updatePrice = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
+        pricePerMonth = new javax.swing.JLabel();
         updateInternetPlanCombobox = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
         UpdateCustomerDetailsBtn = new javax.swing.JButton();
         ClearFormAdminUpdateBtn = new javax.swing.JButton();
         DeleteBtnAdmin1 = new javax.swing.JButton();
+        ScrollPanelAdminUpdate = new javax.swing.JScrollPane();
+        AdminUpdateTable = new javax.swing.JTable();
+        UpdateAdminTitle = new javax.swing.JLabel();
+        searchPnlUpdate = new javax.swing.JPanel();
+        searchTextFieldUpdate = new javax.swing.JTextField();
+        searchIconUpdate = new javax.swing.JLabel();
+        searchBtnUpdate = new javax.swing.JButton();
+        displayAllCustomer = new javax.swing.JButton();
         AdminAddPage = new javax.swing.JPanel();
         AdminAddScrollPane = new javax.swing.JScrollPane();
         AdminAdd = new javax.swing.JPanel();
@@ -154,23 +203,70 @@ public class main extends javax.swing.JFrame {
         CustomerInternetSpeedField = new javax.swing.JTextField();
         CustomerInternetPriceField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        TableAdminAdd = new javax.swing.JTable();
+        searchPnl = new javax.swing.JPanel();
+        searchTextField = new javax.swing.JTextField();
+        searchIcon = new javax.swing.JLabel();
+        ComboBoxInsertionSort = new javax.swing.JComboBox<>();
+        searchBtn = new javax.swing.JButton();
+        AdminHomePage = new javax.swing.JPanel();
+        AdminHomeScroll = new javax.swing.JScrollPane();
+        AdminHome = new javax.swing.JPanel();
+        AdminHomeTitle = new javax.swing.JLabel();
+        customerCountPln = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        customerCount = new javax.swing.JLabel();
+        userCountPnl = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        userCount = new javax.swing.JLabel();
+        planCountPnl = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        planCount = new javax.swing.JLabel();
+        ManagePlansAdminHome = new javax.swing.JLabel();
+        PlansTableAdminHomeScrollPane = new javax.swing.JScrollPane();
+        PlansTableAdminHome = new javax.swing.JTable();
+        EarningContainer = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        customerCount1 = new javax.swing.JLabel();
+        earningCount = new javax.swing.JLabel();
+        DeletePlanBtn = new javax.swing.JButton();
+        UpdatePlanBtn = new javax.swing.JButton();
+        AddPlanBtn = new javax.swing.JButton();
+        PlanNameManagePlans = new javax.swing.JLabel();
+        PlanNameTextField = new javax.swing.JTextField();
+        PriceTextField = new javax.swing.JTextField();
+        PriceManagePlans = new javax.swing.JLabel();
+        SpeedManagePlans = new javax.swing.JLabel();
+        SpeedTextField = new javax.swing.JTextField();
+        ClearPlanBtn = new javax.swing.JButton();
         AdminForUserPnl = new javax.swing.JPanel();
         NotAdminMsg = new javax.swing.JLabel();
         PricingPage = new javax.swing.JPanel();
-        PricingPageScrollPane = new javax.swing.JScrollPane();
         pricing_page_pnl = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        PlansHeaderText = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        PricingTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        PlanNameManagePlans1 = new javax.swing.JLabel();
+        PlanNameUserInput = new javax.swing.JTextField();
+        SpeedManagePlans1 = new javax.swing.JLabel();
+        SpeedUserInput = new javax.swing.JTextField();
+        PriceManagePlans2 = new javax.swing.JLabel();
+        UsernameUserInput = new javax.swing.JTextField();
+        PriceManagePlans3 = new javax.swing.JLabel();
+        EmailUserInput = new javax.swing.JTextField();
+        PriceManagePlans4 = new javax.swing.JLabel();
+        PhoneNumberUserInput = new javax.swing.JTextField();
+        PriceUserInput = new javax.swing.JTextField();
+        SpeedManagePlans2 = new javax.swing.JLabel();
+        SubscribeBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        sortPlanComboBox = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SoraNet");
+        setAutoRequestFocus(false);
         setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         setLocation(new java.awt.Point(150, 90));
         setMinimumSize(new java.awt.Dimension(1400, 800));
@@ -494,6 +590,12 @@ public class main extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 navHomeMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                navHomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                navHomeMouseExited(evt);
+            }
         });
 
         navAdmin.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -502,6 +604,12 @@ public class main extends javax.swing.JFrame {
         navAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 navAdminMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                navAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                navAdminMouseExited(evt);
             }
         });
 
@@ -549,10 +657,15 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        LogoutNavBtn.setBackground(new java.awt.Color(51, 51, 51));
+        LogoutNavBtn.setBackground(new java.awt.Color(21, 32, 58));
         LogoutNavBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LogoutNavBtn.setForeground(new java.awt.Color(255, 255, 255));
         LogoutNavBtn.setText("Logout");
+        LogoutNavBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutNavBtnMouseClicked(evt);
+            }
+        });
         LogoutNavBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutNavBtnActionPerformed(evt);
@@ -611,10 +724,14 @@ public class main extends javax.swing.JFrame {
 
         HomePageScrollPane.setBorder(null);
         HomePageScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        HomePageScrollPane.setMaximumSize(new java.awt.Dimension(1400, 800));
+        HomePageScrollPane.setMinimumSize(new java.awt.Dimension(1400, 800));
         HomePageScrollPane.setPreferredSize(new java.awt.Dimension(1400, 800));
 
         HomePagePnl.setBackground(new java.awt.Color(255, 255, 255));
-        HomePagePnl.setPreferredSize(new java.awt.Dimension(1400, 960));
+        HomePagePnl.setMaximumSize(new java.awt.Dimension(1400, 1400));
+        HomePagePnl.setMinimumSize(new java.awt.Dimension(1400, 1400));
+        HomePagePnl.setPreferredSize(new java.awt.Dimension(1400, 1400));
 
         hero_section_pnl.setBackground(new java.awt.Color(255, 255, 255));
         hero_section_pnl.setMaximumSize(new java.awt.Dimension(1400, 600));
@@ -650,6 +767,30 @@ public class main extends javax.swing.JFrame {
         ImageHeroSection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/headeImage.jpg"))); // NOI18N
         ImageHeroSection.setText("jLabel7");
 
+        jPanel2.setBackground(new java.awt.Color(21, 44, 58));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Get 20% off on your first subscription!");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(557, 557, 557)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(471, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout hero_section_pnlLayout = new javax.swing.GroupLayout(hero_section_pnl);
         hero_section_pnl.setLayout(hero_section_pnlLayout);
         hero_section_pnlLayout.setHorizontalGroup(
@@ -663,9 +804,12 @@ public class main extends javax.swing.JFrame {
                     .addComponent(heroSectionjLabel5)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(heroSectionjLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ImageHeroSection, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
+            .addGroup(hero_section_pnlLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         hero_section_pnlLayout.setVerticalGroup(
             hero_section_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,7 +831,267 @@ public class main extends javax.swing.JFrame {
                     .addGroup(hero_section_pnlLayout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(ImageHeroSection)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setText("Why SoraNet is right choice for you:");
+
+        jPanel4.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel21)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel21)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel8.setBackground(new java.awt.Color(21, 44, 58));
+        jPanel8.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Explore our plans -->");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel22)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 101, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel22)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel25.setText("Contact Info");
+
+        jLabel26.setText("Phone: +1-234-567-890");
+
+        jLabel27.setText("Email: support@wifisubscriptions.com");
+
+        jLabel28.setText("Quick links");
+
+        jLabel29.setForeground(new java.awt.Color(21, 42, 58));
+        jLabel29.setText("Home");
+
+        jLabel30.setForeground(new java.awt.Color(21, 42, 58));
+        jLabel30.setText("Wifi plans");
+
+        jLabel31.setText("© 2024 Wi-Fi Subscriptions Management System. All Rights Reserved.");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29))
+                .addGap(230, 230, 230)
+                .addComponent(jLabel31)
+                .addGap(143, 143, 143))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel31))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel30))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel27)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel10.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel32)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel32)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel11.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel33)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel33)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel12.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel34)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel34)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel13.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel35)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel35)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel14.setBackground(new java.awt.Color(54, 110, 146));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Reliable Connectivity");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 406, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 138, Short.MAX_VALUE)
+                    .addComponent(jLabel36)
+                    .addGap(0, 139, Short.MAX_VALUE)))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel36)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout HomePagePnlLayout = new javax.swing.GroupLayout(HomePagePnl);
@@ -695,12 +1099,54 @@ public class main extends javax.swing.JFrame {
         HomePagePnlLayout.setHorizontalGroup(
             HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(hero_section_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(HomePagePnlLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HomePagePnlLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(HomePagePnlLayout.createSequentialGroup()
+                        .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(HomePagePnlLayout.createSequentialGroup()
+                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(HomePagePnlLayout.createSequentialGroup()
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePagePnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         HomePagePnlLayout.setVerticalGroup(
             HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePagePnlLayout.createSequentialGroup()
                 .addComponent(hero_section_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 309, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         HomePageScrollPane.setViewportView(HomePagePnl);
@@ -709,7 +1155,7 @@ public class main extends javax.swing.JFrame {
         HomePage.setLayout(HomePageLayout);
         HomePageLayout.setHorizontalGroup(
             HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 1420, Short.MAX_VALUE)
             .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomePageLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -718,7 +1164,7 @@ public class main extends javax.swing.JFrame {
         );
         HomePageLayout.setVerticalGroup(
             HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 1267, Short.MAX_VALUE)
             .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomePageLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -776,9 +1222,14 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jButton14.setBackground(new java.awt.Color(71, 146, 193));
-        jButton14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton14.setText("Home");
+        AdminHomeBtn.setBackground(new java.awt.Color(71, 146, 193));
+        AdminHomeBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AdminHomeBtn.setText("Home");
+        AdminHomeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminHomeBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout adminNavpnlLayout = new javax.swing.GroupLayout(adminNavpnl);
         adminNavpnl.setLayout(adminNavpnlLayout);
@@ -801,7 +1252,7 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(AdminLogoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(AdminUpdateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(AdminHomeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(AdminAddBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -815,7 +1266,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton14)
+                .addComponent(AdminHomeBtn)
                 .addGap(26, 26, 26)
                 .addComponent(AdminAddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -825,7 +1276,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(58, 58, 58))
         );
 
-        adminNavpnlLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AdminAddBtn, AdminUpdateBtn, jButton14});
+        adminNavpnlLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {AdminAddBtn, AdminHomeBtn, AdminUpdateBtn});
 
         adminContainer.setMaximumSize(new java.awt.Dimension(1134, 793));
         adminContainer.setMinimumSize(new java.awt.Dimension(1134, 793));
@@ -836,6 +1287,189 @@ public class main extends javax.swing.JFrame {
         AdminUpdatePage.setMaximumSize(new java.awt.Dimension(1134, 775));
         AdminUpdatePage.setMinimumSize(new java.awt.Dimension(1134, 775));
         AdminUpdatePage.setPreferredSize(new java.awt.Dimension(1134, 775));
+
+        AdminUpdateScrollPane.setMaximumSize(new java.awt.Dimension(1134, 775));
+        AdminUpdateScrollPane.setMinimumSize(new java.awt.Dimension(1134, 775));
+        AdminUpdateScrollPane.setPreferredSize(new java.awt.Dimension(1134, 775));
+
+        CustomerUpdatePnl.setBackground(new java.awt.Color(255, 255, 255));
+        CustomerUpdatePnl.setMaximumSize(new java.awt.Dimension(1134, 850));
+        CustomerUpdatePnl.setMinimumSize(new java.awt.Dimension(1134, 850));
+        CustomerUpdatePnl.setPreferredSize(new java.awt.Dimension(1134, 900));
+
+        DetailForm1.setBackground(new java.awt.Color(255, 255, 255));
+        DetailForm1.setBorder(javax.swing.BorderFactory.createTitledBorder("Update Form"));
+
+        customerId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        customerId.setText("Customer ID : ");
+
+        updateCustomerId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        updateCustomerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        name.setText(" Name:");
+
+        updatecustomerEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        email.setText("Email:");
+
+        updatePhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        phone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        phone.setText("Phone Number:");
+
+        internetPlan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        internetPlan.setText("InternetPlan:");
+
+        updateInternetSpeed.setEditable(false);
+        updateInternetSpeed.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        speed.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        speed.setText("Speed:");
+
+        updatePrice.setEditable(false);
+        updatePrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pricePerMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pricePerMonth.setText("Price per month:");
+
+        updateInternetPlanCombobox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        updateInternetPlanCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basic Plan", "Standard Plan", "Premium Plan", "Ultra Plan" }));
+        updateInternetPlanCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateInternetPlanComboboxActionPerformed(evt);
+            }
+        });
+
+        UpdateCustomerDetailsBtn.setBackground(new java.awt.Color(54, 110, 146));
+        UpdateCustomerDetailsBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateCustomerDetailsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        UpdateCustomerDetailsBtn.setText("Update");
+        UpdateCustomerDetailsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        UpdateCustomerDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateCustomerDetailsBtnActionPerformed(evt);
+            }
+        });
+
+        ClearFormAdminUpdateBtn.setBackground(new java.awt.Color(51, 51, 51));
+        ClearFormAdminUpdateBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ClearFormAdminUpdateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ClearFormAdminUpdateBtn.setText("Clear Form");
+        ClearFormAdminUpdateBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearFormAdminUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearFormAdminUpdateBtnActionPerformed(evt);
+            }
+        });
+
+        DeleteBtnAdmin1.setBackground(new java.awt.Color(255, 73, 50));
+        DeleteBtnAdmin1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DeleteBtnAdmin1.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteBtnAdmin1.setText("Delete");
+        DeleteBtnAdmin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeleteBtnAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnAdmin1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DetailForm1Layout = new javax.swing.GroupLayout(DetailForm1);
+        DetailForm1.setLayout(DetailForm1Layout);
+        DetailForm1Layout.setHorizontalGroup(
+            DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DetailForm1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updatePhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addComponent(email)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updatecustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addComponent(customerId)
+                        .addGap(81, 81, 81)
+                        .addComponent(updateCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addComponent(name)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DetailForm1Layout.createSequentialGroup()
+                                .addComponent(pricePerMonth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(updatePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DetailForm1Layout.createSequentialGroup()
+                                .addComponent(internetPlan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(updateInternetPlanCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DetailForm1Layout.createSequentialGroup()
+                                .addComponent(speed)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(updateInternetSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailForm1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(UpdateCustomerDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(DeleteBtnAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ClearFormAdminUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(61, 61, 61))
+        );
+
+        DetailForm1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {updateCustomerId, updateCustomerName, updateInternetPlanCombobox, updateInternetSpeed, updatePhoneNumber, updatePrice, updatecustomerEmail});
+
+        DetailForm1Layout.setVerticalGroup(
+            DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DetailForm1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerId)
+                    .addComponent(updateCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(internetPlan)
+                    .addComponent(updateInternetPlanCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(name))
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(speed)
+                            .addComponent(updateInternetSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(DetailForm1Layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(pricePerMonth))
+                        .addGroup(DetailForm1Layout.createSequentialGroup()
+                            .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(updatecustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(email))
+                            .addGap(22, 22, 22)
+                            .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(phone)
+                                .addComponent(updatePhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(DetailForm1Layout.createSequentialGroup()
+                        .addComponent(updatePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ClearFormAdminUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DeleteBtnAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UpdateCustomerDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         AdminUpdateTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AdminUpdateTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -893,11 +1527,11 @@ public class main extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Customer ID", "Name", "Email", "Phone Number", "Internet Plan ", "Speed", "Price"
+                "Customer ID", "Name", "Email", "Phone Number", "Internet Plan ", "Speed", "Price (RS)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -916,201 +1550,112 @@ public class main extends javax.swing.JFrame {
             AdminUpdateTable.getColumnModel().getColumn(i).setCellRenderer(leftRenderer);
         }
 
-        DetailForm1.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateAdminTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        UpdateAdminTitle.setText("Update Customer Details");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Customer ID : ");
+        searchPnlUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        searchPnlUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        updateCustomerId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchTextFieldUpdate.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 21, 1, 1));
 
-        updateCustomerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchIconUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        searchIconUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/loupe.png"))); // NOI18N
+        searchIconUpdate.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText(" Name:");
+        javax.swing.GroupLayout searchPnlUpdateLayout = new javax.swing.GroupLayout(searchPnlUpdate);
+        searchPnlUpdate.setLayout(searchPnlUpdateLayout);
+        searchPnlUpdateLayout.setHorizontalGroup(
+            searchPnlUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPnlUpdateLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(searchIconUpdate)
+                .addGap(0, 0, 0)
+                .addComponent(searchTextFieldUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        searchPnlUpdateLayout.setVerticalGroup(
+            searchPnlUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchPnlUpdateLayout.createSequentialGroup()
+                .addComponent(searchTextFieldUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(searchIconUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-        updatecustomerEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("Email:");
-
-        updatePhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Phone Number:");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("InternetPlan:");
-
-        updateInternetSpeed.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("Speed:");
-
-        updatePrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText("Price per month:");
-
-        updateInternetPlanCombobox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        updateInternetPlanCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Basic Plan", "Standard Plan", "Premium Plan", "Ultra Plan" }));
-        updateInternetPlanCombobox.addActionListener(new java.awt.event.ActionListener() {
+        searchBtnUpdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchBtnUpdate.setText("Search");
+        searchBtnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchBtnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchBtnUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchBtnUpdateMouseExited(evt);
+            }
+        });
+        searchBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateInternetPlanComboboxActionPerformed(evt);
+                searchBtnUpdateActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout DetailForm1Layout = new javax.swing.GroupLayout(DetailForm1);
-        DetailForm1.setLayout(DetailForm1Layout);
-        DetailForm1Layout.setHorizontalGroup(
-            DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DetailForm1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DetailForm1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DetailForm1Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updatecustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailForm1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DetailForm1Layout.createSequentialGroup()
-                        .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailForm1Layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addGap(29, 29, 29))
-                                .addGroup(DetailForm1Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(61, 61, 61)))
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DetailForm1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(updateInternetPlanCombobox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(updatePhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(updateInternetSpeed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(updatePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(57, 57, 57))
+        displayAllCustomer.setText("sort by name");
+        displayAllCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayAllCustomerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CustomerUpdatePnlLayout = new javax.swing.GroupLayout(CustomerUpdatePnl);
+        CustomerUpdatePnl.setLayout(CustomerUpdatePnlLayout);
+        CustomerUpdatePnlLayout.setHorizontalGroup(
+            CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CustomerUpdatePnlLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ScrollPanelAdminUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(CustomerUpdatePnlLayout.createSequentialGroup()
+                            .addGroup(CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CustomerUpdatePnlLayout.createSequentialGroup()
+                                    .addComponent(searchPnlUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(searchBtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(CustomerUpdatePnlLayout.createSequentialGroup()
+                                    .addGap(291, 291, 291)
+                                    .addComponent(UpdateAdminTitle)))
+                            .addGap(183, 183, 183)
+                            .addComponent(displayAllCustomer)))
+                    .addComponent(DetailForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-
-        DetailForm1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {updateCustomerId, updateCustomerName, updateInternetPlanCombobox, updateInternetSpeed, updatePhoneNumber, updatePrice, updatecustomerEmail});
-
-        DetailForm1Layout.setVerticalGroup(
-            DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DetailForm1Layout.createSequentialGroup()
+        CustomerUpdatePnlLayout.setVerticalGroup(
+            CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomerUpdatePnlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(updateCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(updateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(updatecustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(updatePhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(updateInternetPlanCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(updateInternetSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DetailForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(updatePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(UpdateAdminTitle)
+                .addGap(16, 16, 16)
+                .addGroup(CustomerUpdatePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchPnlUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtnUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(displayAllCustomer, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollPanelAdminUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(DetailForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel17.setText("Update Customer Details");
-
-        UpdateCustomerDetailsBtn.setBackground(new java.awt.Color(54, 110, 146));
-        UpdateCustomerDetailsBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        UpdateCustomerDetailsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        UpdateCustomerDetailsBtn.setText("Update");
-        UpdateCustomerDetailsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        UpdateCustomerDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateCustomerDetailsBtnActionPerformed(evt);
-            }
-        });
-
-        ClearFormAdminUpdateBtn.setBackground(new java.awt.Color(51, 51, 51));
-        ClearFormAdminUpdateBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ClearFormAdminUpdateBtn.setForeground(new java.awt.Color(255, 255, 255));
-        ClearFormAdminUpdateBtn.setText("Clear Form");
-        ClearFormAdminUpdateBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ClearFormAdminUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearFormAdminUpdateBtnActionPerformed(evt);
-            }
-        });
-
-        DeleteBtnAdmin1.setBackground(new java.awt.Color(255, 73, 50));
-        DeleteBtnAdmin1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        DeleteBtnAdmin1.setForeground(new java.awt.Color(255, 255, 255));
-        DeleteBtnAdmin1.setText("Delete");
-        DeleteBtnAdmin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        DeleteBtnAdmin1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteBtnAdmin1ActionPerformed(evt);
-            }
-        });
+        AdminUpdateScrollPane.setViewportView(CustomerUpdatePnl);
 
         javax.swing.GroupLayout AdminUpdatePageLayout = new javax.swing.GroupLayout(AdminUpdatePage);
         AdminUpdatePage.setLayout(AdminUpdatePageLayout);
         AdminUpdatePageLayout.setHorizontalGroup(
             AdminUpdatePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminUpdatePageLayout.createSequentialGroup()
-                .addComponent(DetailForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AdminUpdatePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AdminUpdatePageLayout.createSequentialGroup()
-                        .addComponent(UpdateCustomerDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(ClearFormAdminUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(DeleteBtnAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(90, 90, 90))
-                    .addGroup(AdminUpdatePageLayout.createSequentialGroup()
-                        .addComponent(ScrollPanelAdminUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminUpdatePageLayout.createSequentialGroup()
-                .addGap(0, 348, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(333, 333, 333))
+            .addComponent(AdminUpdateScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         AdminUpdatePageLayout.setVerticalGroup(
             AdminUpdatePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminUpdatePageLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addGap(44, 44, 44)
-                .addGroup(AdminUpdatePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DetailForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(AdminUpdatePageLayout.createSequentialGroup()
-                        .addComponent(ScrollPanelAdminUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addGroup(AdminUpdatePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(UpdateCustomerDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ClearFormAdminUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DeleteBtnAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(67, Short.MAX_VALUE))
+            .addComponent(AdminUpdateScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         adminContainer.add(AdminUpdatePage, "card2");
@@ -1154,7 +1699,7 @@ public class main extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel10.setText("Customer Detail Form");
 
-        CustomerAddBtnAdmin.setBackground(new java.awt.Color(54, 110, 146));
+        CustomerAddBtnAdmin.setBackground(new java.awt.Color(0, 128, 0));
         CustomerAddBtnAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CustomerAddBtnAdmin.setForeground(new java.awt.Color(255, 255, 255));
         CustomerAddBtnAdmin.setText("Add");
@@ -1180,7 +1725,7 @@ public class main extends javax.swing.JFrame {
         Speed.setText("Speed: ");
 
         CustomerInternetPlanComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        CustomerInternetPlanComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Basic Plan", "Standard Plan", "Premium Plan", "Ultra Plan" }));
+        CustomerInternetPlanComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basic Plan", "Standard Plan", "Premium Plan", "Ultra Plan" }));
         CustomerInternetPlanComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CustomerInternetPlanComboBoxActionPerformed(evt);
@@ -1282,7 +1827,7 @@ public class main extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TableAdminAdd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -1301,7 +1846,7 @@ public class main extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Customer ID", "Customer Full Name", "Email", "Phone Number", "Internet Plan ", "Speed", "Price"
+                "Customer ID", "Customer Full Name", "Email", "Phone Number", "Internet Plan ", "Speed", "Price (RS)"
             }
         ) {
             Class[] types = new Class [] {
@@ -1312,40 +1857,67 @@ public class main extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TableAdminAdd);
         javax.swing.table.DefaultTableCellRenderer renderLeft = new javax.swing.table.DefaultTableCellRenderer();
         renderLeft.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        for (int i = 0; i < jTable2.getColumnCount(); i++) {
-            jTable2.getColumnModel().getColumn(i).setCellRenderer(renderLeft);
+        for (int i = 0; i < TableAdminAdd.getColumnCount(); i++) {
+            TableAdminAdd.getColumnModel().getColumn(i).setCellRenderer(renderLeft);
         }
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        searchPnl.setBackground(new java.awt.Color(255, 255, 255));
+        searchPnl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 21, 1, 1));
+        searchTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 21, 1, 1));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/loupe.png"))); // NOI18N
-        jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        searchIcon.setBackground(new java.awt.Color(255, 255, 255));
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/loupe.png"))); // NOI18N
+        searchIcon.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout searchPnlLayout = new javax.swing.GroupLayout(searchPnl);
+        searchPnl.setLayout(searchPnlLayout);
+        searchPnlLayout.setHorizontalGroup(
+            searchPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPnlLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(searchIcon)
                 .addGap(0, 0, 0)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+        searchPnlLayout.setVerticalGroup(
+            searchPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchPnlLayout.createSequentialGroup()
+                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        ComboBoxInsertionSort.setBackground(new java.awt.Color(74, 144, 226));
+        ComboBoxInsertionSort.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ComboBoxInsertionSort.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBoxInsertionSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by name", "sort by price", "sort by id" }));
+        ComboBoxInsertionSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxInsertionSortActionPerformed(evt);
+            }
+        });
+
+        searchBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchBtn.setText("Search");
+        searchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchBtnMouseExited(evt);
+            }
+        });
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AdminAddLayout = new javax.swing.GroupLayout(AdminAdd);
         AdminAdd.setLayout(AdminAddLayout);
@@ -1353,9 +1925,14 @@ public class main extends javax.swing.JFrame {
             AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminAddLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1071, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminAddLayout.createSequentialGroup()
+                        .addComponent(searchPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ComboBoxInsertionSort, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(AdminAddLayout.createSequentialGroup()
                 .addContainerGap()
@@ -1365,8 +1942,15 @@ public class main extends javax.swing.JFrame {
         AdminAddLayout.setVerticalGroup(
             AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminAddLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminAddLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(searchPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminAddLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(AdminAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxInsertionSort, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -1388,10 +1972,371 @@ public class main extends javax.swing.JFrame {
             AdminAddPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminAddPageLayout.createSequentialGroup()
                 .addComponent(AdminAddScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 56, Short.MAX_VALUE))
+                .addGap(0, 54, Short.MAX_VALUE))
         );
 
         adminContainer.add(AdminAddPage, "card4");
+
+        AdminHomePage.setMaximumSize(new java.awt.Dimension(1124, 770));
+        AdminHomePage.setMinimumSize(new java.awt.Dimension(1124, 770));
+        AdminHomePage.setPreferredSize(new java.awt.Dimension(1124, 770));
+
+        AdminHomeScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        AdminHomeScroll.setMaximumSize(new java.awt.Dimension(1124, 770));
+        AdminHomeScroll.setMinimumSize(new java.awt.Dimension(1124, 770));
+        AdminHomeScroll.setPreferredSize(new java.awt.Dimension(1124, 770));
+
+        AdminHome.setBackground(new java.awt.Color(244, 247, 252));
+        AdminHome.setMaximumSize(new java.awt.Dimension(1124, 920));
+        AdminHome.setMinimumSize(new java.awt.Dimension(1124, 920));
+        AdminHome.setPreferredSize(new java.awt.Dimension(1124, 920));
+
+        AdminHomeTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        AdminHomeTitle.setText("Admin Home Page");
+
+        customerCountPln.setBackground(new java.awt.Color(255, 255, 255));
+        customerCountPln.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Total customer count");
+
+        customerCount.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        customerCount.setForeground(new java.awt.Color(54, 110, 146));
+        customerCount.setText("0");
+
+        javax.swing.GroupLayout customerCountPlnLayout = new javax.swing.GroupLayout(customerCountPln);
+        customerCountPln.setLayout(customerCountPlnLayout);
+        customerCountPlnLayout.setHorizontalGroup(
+            customerCountPlnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerCountPlnLayout.createSequentialGroup()
+                .addGroup(customerCountPlnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerCountPlnLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel4))
+                    .addGroup(customerCountPlnLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(customerCount)))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        customerCountPlnLayout.setVerticalGroup(
+            customerCountPlnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerCountPlnLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addGap(35, 35, 35)
+                .addComponent(customerCount)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        userCountPnl.setBackground(new java.awt.Color(255, 255, 255));
+        userCountPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Total user count");
+
+        userCount.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        userCount.setForeground(new java.awt.Color(54, 110, 146));
+        userCount.setText("0");
+
+        javax.swing.GroupLayout userCountPnlLayout = new javax.swing.GroupLayout(userCountPnl);
+        userCountPnl.setLayout(userCountPnlLayout);
+        userCountPnlLayout.setHorizontalGroup(
+            userCountPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userCountPnlLayout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(userCountPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userCountPnlLayout.createSequentialGroup()
+                        .addComponent(userCount)
+                        .addGap(139, 139, 139))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userCountPnlLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(62, 62, 62))))
+        );
+        userCountPnlLayout.setVerticalGroup(
+            userCountPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userCountPnlLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel5)
+                .addGap(31, 31, 31)
+                .addComponent(userCount)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        planCountPnl.setBackground(new java.awt.Color(255, 255, 255));
+        planCountPnl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Total plan count");
+
+        planCount.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        planCount.setForeground(new java.awt.Color(54, 110, 146));
+        planCount.setText("0");
+
+        javax.swing.GroupLayout planCountPnlLayout = new javax.swing.GroupLayout(planCountPnl);
+        planCountPnl.setLayout(planCountPnlLayout);
+        planCountPnlLayout.setHorizontalGroup(
+            planCountPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(planCountPnlLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel6)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, planCountPnlLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(planCount)
+                .addGap(142, 142, 142))
+        );
+        planCountPnlLayout.setVerticalGroup(
+            planCountPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(planCountPnlLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel6)
+                .addGap(30, 30, 30)
+                .addComponent(planCount)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ManagePlansAdminHome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ManagePlansAdminHome.setText("Manage plans");
+
+        PlansTableAdminHome.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Plan Name", "Speed", "Price per month"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        PlansTableAdminHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PlansTableAdminHomeMouseClicked(evt);
+            }
+        });
+        PlansTableAdminHomeScrollPane.setViewportView(PlansTableAdminHome);
+
+        EarningContainer.setBackground(new java.awt.Color(255, 255, 255));
+        EarningContainer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel23.setText("Earnings:");
+
+        customerCount1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        customerCount1.setForeground(new java.awt.Color(54, 110, 146));
+        customerCount1.setText("RS");
+
+        earningCount.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        earningCount.setForeground(new java.awt.Color(54, 110, 146));
+        earningCount.setText("0");
+
+        javax.swing.GroupLayout EarningContainerLayout = new javax.swing.GroupLayout(EarningContainer);
+        EarningContainer.setLayout(EarningContainerLayout);
+        EarningContainerLayout.setHorizontalGroup(
+            EarningContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EarningContainerLayout.createSequentialGroup()
+                .addGroup(EarningContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EarningContainerLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel23))
+                    .addGroup(EarningContainerLayout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(customerCount1)
+                        .addGap(18, 18, 18)
+                        .addComponent(earningCount)))
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        EarningContainerLayout.setVerticalGroup(
+            EarningContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EarningContainerLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addGroup(EarningContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerCount1)
+                    .addComponent(earningCount))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+
+        DeletePlanBtn.setBackground(new java.awt.Color(51, 51, 51));
+        DeletePlanBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DeletePlanBtn.setForeground(new java.awt.Color(255, 255, 255));
+        DeletePlanBtn.setText("Delete");
+        DeletePlanBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeletePlanBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletePlanBtnActionPerformed(evt);
+            }
+        });
+
+        UpdatePlanBtn.setBackground(new java.awt.Color(51, 51, 51));
+        UpdatePlanBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UpdatePlanBtn.setForeground(new java.awt.Color(255, 255, 255));
+        UpdatePlanBtn.setText("Update");
+        UpdatePlanBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        UpdatePlanBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UpdatePlanBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                UpdatePlanBtnMouseExited(evt);
+            }
+        });
+        UpdatePlanBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdatePlanBtnActionPerformed(evt);
+            }
+        });
+
+        AddPlanBtn.setBackground(new java.awt.Color(51, 51, 51));
+        AddPlanBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        AddPlanBtn.setForeground(new java.awt.Color(255, 255, 255));
+        AddPlanBtn.setText("Add");
+        AddPlanBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddPlanBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddPlanBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddPlanBtnMouseExited(evt);
+            }
+        });
+        AddPlanBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddPlanBtnActionPerformed(evt);
+            }
+        });
+
+        PlanNameManagePlans.setText("Plan Name:");
+
+        PriceManagePlans.setText("Price/month:");
+
+        SpeedManagePlans.setText("Speed: ");
+
+        ClearPlanBtn.setBackground(new java.awt.Color(51, 51, 51));
+        ClearPlanBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ClearPlanBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ClearPlanBtn.setText("Clear");
+        ClearPlanBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearPlanBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearPlanBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdminHomeLayout = new javax.swing.GroupLayout(AdminHome);
+        AdminHome.setLayout(AdminHomeLayout);
+        AdminHomeLayout.setHorizontalGroup(
+            AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminHomeLayout.createSequentialGroup()
+                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminHomeLayout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(AdminHomeTitle))
+                    .addGroup(AdminHomeLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ManagePlansAdminHome)
+                            .addGroup(AdminHomeLayout.createSequentialGroup()
+                                .addComponent(customerCountPln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(userCountPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(planCountPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PlansTableAdminHomeScrollPane)
+                            .addComponent(EarningContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(AdminHomeLayout.createSequentialGroup()
+                                .addComponent(PlanNameManagePlans)
+                                .addGap(30, 30, 30)
+                                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(AddPlanBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PlanNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(AdminHomeLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SpeedManagePlans)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(SpeedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(66, 66, 66)
+                                        .addComponent(PriceManagePlans))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AdminHomeLayout.createSequentialGroup()
+                                        .addGap(56, 56, 56)
+                                        .addComponent(UpdatePlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(DeletePlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(30, 30, 30)
+                                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PriceTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                    .addComponent(ClearPlanBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        AdminHomeLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {DeletePlanBtn, UpdatePlanBtn});
+
+        AdminHomeLayout.setVerticalGroup(
+            AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminHomeLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(AdminHomeTitle)
+                .addGap(35, 35, 35)
+                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(planCountPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(customerCountPln, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userCountPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(EarningContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ManagePlansAdminHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PlansTableAdminHomeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PlanNameManagePlans)
+                    .addComponent(PlanNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PriceManagePlans)
+                    .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SpeedManagePlans)
+                    .addComponent(SpeedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UpdatePlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddPlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeletePlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClearPlanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
+        AdminHomeScroll.setViewportView(AdminHome);
+
+        javax.swing.GroupLayout AdminHomePageLayout = new javax.swing.GroupLayout(AdminHomePage);
+        AdminHomePage.setLayout(AdminHomePageLayout);
+        AdminHomePageLayout.setHorizontalGroup(
+            AdminHomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminHomePageLayout.createSequentialGroup()
+                .addComponent(AdminHomeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        AdminHomePageLayout.setVerticalGroup(
+            AdminHomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminHomePageLayout.createSequentialGroup()
+                .addComponent(AdminHomeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        adminContainer.add(AdminHomePage, "card5");
 
         javax.swing.GroupLayout AdminPagePnlLayout = new javax.swing.GroupLayout(AdminPagePnl);
         AdminPagePnl.setLayout(AdminPagePnlLayout);
@@ -1413,149 +2358,212 @@ public class main extends javax.swing.JFrame {
 
         AdminPage.add(AdminPagePnl, "card3");
 
-        AdminForUserPnl.setBackground(new java.awt.Color(245, 244, 242));
+        AdminForUserPnl.setBackground(new java.awt.Color(255, 255, 255));
         AdminForUserPnl.setMaximumSize(new java.awt.Dimension(1413, 793));
         AdminForUserPnl.setMinimumSize(new java.awt.Dimension(1413, 793));
 
-        NotAdminMsg.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        NotAdminMsg.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         NotAdminMsg.setText("You must be admin to access this page");
 
         javax.swing.GroupLayout AdminForUserPnlLayout = new javax.swing.GroupLayout(AdminForUserPnl);
         AdminForUserPnl.setLayout(AdminForUserPnlLayout);
         AdminForUserPnlLayout.setHorizontalGroup(
             AdminForUserPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AdminForUserPnlLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminForUserPnlLayout.createSequentialGroup()
+                .addContainerGap(362, Short.MAX_VALUE)
                 .addComponent(NotAdminMsg)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGap(331, 331, 331))
         );
         AdminForUserPnlLayout.setVerticalGroup(
             AdminForUserPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminForUserPnlLayout.createSequentialGroup()
-                .addContainerGap(382, Short.MAX_VALUE)
+            .addGroup(AdminForUserPnlLayout.createSequentialGroup()
+                .addGap(245, 245, 245)
                 .addComponent(NotAdminMsg)
-                .addGap(355, 355, 355))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
 
         AdminPage.add(AdminForUserPnl, "card2");
 
         pages_container.add(AdminPage, "card5");
 
-        PricingPage.setMaximumSize(new java.awt.Dimension(1414, 724));
-        PricingPage.setMinimumSize(new java.awt.Dimension(1414, 724));
-
-        PricingPageScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        PricingPageScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        PricingPage.setMaximumSize(new java.awt.Dimension(1471, 775));
+        PricingPage.setMinimumSize(new java.awt.Dimension(1471, 775));
+        PricingPage.setPreferredSize(new java.awt.Dimension(1471, 775));
 
         pricing_page_pnl.setBackground(new java.awt.Color(255, 255, 255));
+        pricing_page_pnl.setMaximumSize(new java.awt.Dimension(1471, 760));
+        pricing_page_pnl.setMinimumSize(new java.awt.Dimension(1471, 760));
+        pricing_page_pnl.setPreferredSize(new java.awt.Dimension(1471, 760));
 
-        jButton4.setText("Plans and pricing");
+        PlansHeaderText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        PlansHeaderText.setText("Plans and pricing");
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        PricingTable.setBackground(new java.awt.Color(244, 247, 246));
+        PricingTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Plan Name", "Speed", "Price per month"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 285, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        PricingTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PricingTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(PricingTable);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(244, 247, 246));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setMaximumSize(new java.awt.Dimension(120, 450));
+        jPanel3.setMinimumSize(new java.awt.Dimension(120, 450));
+        jPanel3.setPreferredSize(new java.awt.Dimension(120, 450));
+        jPanel3.setLayout(null);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        PlanNameManagePlans1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        PlanNameManagePlans1.setText("Plan Name:");
+        jPanel3.add(PlanNameManagePlans1);
+        PlanNameManagePlans1.setBounds(580, 60, 70, 15);
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        PlanNameUserInput.setEditable(false);
+        jPanel3.add(PlanNameUserInput);
+        PlanNameUserInput.setBounds(680, 40, 320, 50);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
-        );
+        SpeedManagePlans1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SpeedManagePlans1.setText("Speed: ");
+        jPanel3.add(SpeedManagePlans1);
+        SpeedManagePlans1.setBounds(580, 160, 50, 15);
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+        SpeedUserInput.setEditable(false);
+        jPanel3.add(SpeedUserInput);
+        SpeedUserInput.setBounds(680, 140, 320, 50);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 285, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
-        );
+        PriceManagePlans2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        PriceManagePlans2.setText("Username");
+        jPanel3.add(PriceManagePlans2);
+        PriceManagePlans2.setBounds(20, 50, 70, 15);
+        jPanel3.add(UsernameUserInput);
+        UsernameUserInput.setBounds(120, 40, 300, 50);
+
+        PriceManagePlans3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        PriceManagePlans3.setText("Email");
+        jPanel3.add(PriceManagePlans3);
+        PriceManagePlans3.setBounds(20, 150, 40, 15);
+        jPanel3.add(EmailUserInput);
+        EmailUserInput.setBounds(120, 140, 300, 50);
+
+        PriceManagePlans4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        PriceManagePlans4.setText("Phone Number:");
+        jPanel3.add(PriceManagePlans4);
+        PriceManagePlans4.setBounds(20, 260, 100, 15);
+        jPanel3.add(PhoneNumberUserInput);
+        PhoneNumberUserInput.setBounds(120, 240, 300, 50);
+
+        PriceUserInput.setEditable(false);
+        jPanel3.add(PriceUserInput);
+        PriceUserInput.setBounds(680, 240, 320, 50);
+
+        SpeedManagePlans2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SpeedManagePlans2.setText("Price/month:");
+        jPanel3.add(SpeedManagePlans2);
+        SpeedManagePlans2.setBounds(580, 260, 90, 15);
+
+        SubscribeBtn.setBackground(new java.awt.Color(51, 51, 51));
+        SubscribeBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SubscribeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        SubscribeBtn.setText("Subscribe");
+        SubscribeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SubscribeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubscribeBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(SubscribeBtn);
+        SubscribeBtn.setBounds(120, 310, 300, 40);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Buy subscription here: ");
+
+        sortPlanComboBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        sortPlanComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "low to high", "high to low" }));
+        sortPlanComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortPlanComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Price:");
 
         javax.swing.GroupLayout pricing_page_pnlLayout = new javax.swing.GroupLayout(pricing_page_pnl);
         pricing_page_pnl.setLayout(pricing_page_pnlLayout);
         pricing_page_pnlLayout.setHorizontalGroup(
             pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pricing_page_pnlLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(135, 135, 135)
                 .addGroup(pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addGroup(pricing_page_pnlLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addGroup(pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pricing_page_pnlLayout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addGap(10, 10, 10)
+                            .addComponent(sortPlanComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pricing_page_pnlLayout.createSequentialGroup()
+                                .addComponent(PlansHeaderText)
+                                .addGap(306, 306, 306))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         pricing_page_pnlLayout.setVerticalGroup(
             pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pricing_page_pnlLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jButton4)
-                .addGap(57, 57, 57)
-                .addGroup(pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(PlansHeaderText)
+                .addGap(4, 4, 4)
+                .addGroup(pricing_page_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortPlanComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
-
-        PricingPageScrollPane.setViewportView(pricing_page_pnl);
 
         javax.swing.GroupLayout PricingPageLayout = new javax.swing.GroupLayout(PricingPage);
         PricingPage.setLayout(PricingPageLayout);
         PricingPageLayout.setHorizontalGroup(
             PricingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1414, Short.MAX_VALUE)
-            .addGroup(PricingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PricingPageLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PricingPageScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PricingPageLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pricing_page_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PricingPageLayout.setVerticalGroup(
             PricingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
-            .addGroup(PricingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PricingPageLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PricingPageScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PricingPageLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pricing_page_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         pages_container.add(PricingPage, "card5");
@@ -1585,12 +2593,12 @@ public class main extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(signupPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(loginPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signupPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -1601,12 +2609,12 @@ public class main extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(signupPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(loginPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(signupPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -1654,12 +2662,17 @@ public class main extends javax.swing.JFrame {
 
     private void navAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navAdminMouseClicked
         switchNavPanels(AdminPage);
+        switchAdminPanels(AdminHomePage);
+        populatePlansTable(PlansTableAdminHome);
+        customerCount.setText(String.valueOf(customerController.returnSize()));
+        userCount.setText(String.valueOf(userAuth.getUserCount()));
+        planCount.setText(String.valueOf(priceController.planSize()));
+        earningCount.setText(String.valueOf(customerController.returnEarnings()));
         if (userAuth.getLoggedInUsername().equals("admin")) {
             switchMainAdminPanel(AdminPagePnl);
         } else {
             switchMainAdminPanel(AdminForUserPnl);
         }
-
     }//GEN-LAST:event_navAdminMouseClicked
 
     private void logoContainerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoContainerMouseClicked
@@ -1669,11 +2682,13 @@ public class main extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        populatePlansTable(PricingTable);
         switchNavPanels(PricingPage);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void navBuyPlanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navBuyPlanMouseClicked
         // TODO add your handling code here:
+        populatePlansTable(PricingTable);
         switchNavPanels(PricingPage);
     }//GEN-LAST:event_navBuyPlanMouseClicked
 
@@ -1692,19 +2707,24 @@ public class main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Both username and password are required.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
         try {
             if (userAuth.login(username, password)) {
                 loginUsernameField.setText("");
                 loginPasswordField.setText("");
                 LoggedInUser.setText(userAuth.getLoggedInUsername());
+                if (userAuth.isAdmin(username)) {
+                    AdminPage.setVisible(true);
+                }
                 loadScreen("MainScreen");  // Load main screen after successful login
+                switchNavPanels(HomePage);
             } else {
                 // Show error message if login fails
                 JOptionPane.showMessageDialog(this, "Invalid username or password. Please try again.", "Login Failed", JOptionPane.WARNING_MESSAGE);
                 loginUsernameField.setText("");
                 loginPasswordField.setText("");
             }
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(this, "An error occurred during login: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginBtnActionPerformed
@@ -1740,6 +2760,7 @@ public class main extends javax.swing.JFrame {
                 signupPasswordField.setText("");
                 signupEmailField.setText("");
                 loadScreen("LoginScreen");
+                switchNavPanels(HomePage);
             } else {
                 // Show error message if username already exists
                 JOptionPane.showMessageDialog(this, "Username already exists. Please choose a different username.", "Signup Failed", JOptionPane.WARNING_MESSAGE);
@@ -1747,11 +2768,10 @@ public class main extends javax.swing.JFrame {
                 signupPasswordField.setText("");
                 signupEmailField.setText("");
             }
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(this, "An error occurred during signup: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SignupBtnActionPerformed
-
 
     private void GotoSingupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GotoSingupActionPerformed
         // TODO add your handling code here:
@@ -1781,18 +2801,12 @@ public class main extends javax.swing.JFrame {
      */
     private void CustomerInternetPlanComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerInternetPlanComboBoxActionPerformed
         // TODO add your handling code here:
-        plans.add(new InternetModel("None", "", ""));
-        plans.add(new InternetModel("Basic Plan", "50 Mbps", "RS 1000"));
-        plans.add(new InternetModel("Standard Plan", "150 Mbps", "RS 1500"));
-        plans.add(new InternetModel("Premium Plan", "250 Mbps", "RS 2500"));
-        plans.add(new InternetModel("Ultra Plan", "500 Mbps", "RS 5000"));
-
         String selectedPlan = (String) CustomerInternetPlanComboBox.getSelectedItem();
-
-        for (InternetModel plan : plans) {
+        List<InternetModel> internetPlan = priceController.getAllPlan();
+        for (InternetModel plan : internetPlan) {
             if (plan.getName().equals(selectedPlan)) {
                 CustomerInternetSpeedField.setText(plan.getSpeed());
-                CustomerInternetPriceField.setText(plan.getPrice());
+                CustomerInternetPriceField.setText(String.valueOf(plan.getPrice()));
                 break;
             }
         }
@@ -1806,45 +2820,54 @@ public class main extends javax.swing.JFrame {
         CustomerInternetPlanComboBox.setSelectedIndex(0);
         CustomerInternetSpeedField.setText("");
         CustomerInternetPriceField.setText("");
-
     }//GEN-LAST:event_ClearBtnAdminActionPerformed
 
     private void AdminLogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLogoutBtnActionPerformed
         // TODO add your handling code here:
-        loadScreen("LoginScreen");
+        int response = JOptionPane.showConfirmDialog(null, "Confirm logout?", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            loadScreen("LoginScreen");
+        } else {
+            JOptionPane.showMessageDialog(null, "Logout cancelled", "cancelled", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_AdminLogoutBtnActionPerformed
 
     private void LogoutNavBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutNavBtnActionPerformed
         // TODO add your handling code here:
-        loadScreen("LoginScreen");
+        int response = JOptionPane.showConfirmDialog(null, "Confirm logout?", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            loadScreen("LoginScreen");
+        } else {
+            JOptionPane.showMessageDialog(null, "Logout cancelled", "cancelled", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_LogoutNavBtnActionPerformed
 
     private void CustomerAddBtnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerAddBtnAdminActionPerformed
         // TODO add your handling code here:
-        String name = CustomerNameField.getText().trim();
-        String email = CustomerEmailField.getText().trim();
-        String phoneNumber = CustomerPhoneField.getText().trim();
-        String internetPlan = CustomerInternetPlanComboBox.getSelectedItem().toString();
-        String speed = CustomerInternetSpeedField.getText().trim();
-        String price = CustomerInternetPriceField.getText().trim();
-
-        // Check if any field is empty
-        if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty() || price.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (!isValidPhoneNumber(phoneNumber)) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid phone number (digits only).", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         try {
+            String name = CustomerNameField.getText().trim();
+            String email = CustomerEmailField.getText().trim();
+            String phoneNumber = CustomerPhoneField.getText().trim();
+            String internetPlan = CustomerInternetPlanComboBox.getSelectedItem().toString();
+            String speed = CustomerInternetSpeedField.getText().trim();
+            int price = Integer.parseInt(CustomerInternetPriceField.getText());
+            // Check if any field is empty
+            if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!isValidPhoneNumber(phoneNumber)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             if (customerController.addCustomer(name, email, phoneNumber, internetPlan, speed, price)) {
                 CustomerNameField.setText("");
                 CustomerEmailField.setText("");
@@ -1852,13 +2875,13 @@ public class main extends javax.swing.JFrame {
                 CustomerInternetSpeedField.setText("");
                 CustomerInternetPriceField.setText("");
                 CustomerInternetPlanComboBox.setSelectedIndex(0);
-
-                populateTable(jTable2);
+                populateCustomerTable(TableAdminAdd);
+                populateCustomerTable(AdminUpdateTable);
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to add customer. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "An error occurred while adding the customer: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Number.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_CustomerAddBtnAdminActionPerformed
 
@@ -1875,49 +2898,60 @@ public class main extends javax.swing.JFrame {
 
     private void UpdateCustomerDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateCustomerDetailsBtnActionPerformed
         // TODO add your handling code here:
-        String customerId = updateCustomerId.getText().trim();
-        String name = updateCustomerName.getText().trim();
-        String email = updatecustomerEmail.getText().trim();
-        String phoneNumber = updatePhoneNumber.getText().trim();
-        String internetPlan = updateInternetPlanCombobox.getSelectedItem().toString();
-        String speed = updateInternetSpeed.getText().trim();
-        String price = updatePrice.getText().trim();
+        try {
+            String customerId = updateCustomerId.getText().trim();
+            String name = updateCustomerName.getText().trim();
+            String email = updatecustomerEmail.getText().trim();
+            String phoneNumber = updatePhoneNumber.getText().trim();
+            String internetPlan = updateInternetPlanCombobox.getSelectedItem().toString();
+            String speed = updateInternetSpeed.getText().trim();
+            int price = Integer.parseInt(updatePrice.getText());
 
-        if (customerId.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty() || price.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            updateInternetSpeed.setEditable(false);
+            updatePrice.setEditable(false);
+
+            if (customerId.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill in all fields!", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!isValidEmail(email)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!isValidPhoneNumber(phoneNumber)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (customerController.updateCustomer(customerId, name, phoneNumber, internetPlan, speed, price)) {
+                updateCustomerId.setText("");
+                updateCustomerName.setText("");
+                updatecustomerEmail.setText("");
+                updatePhoneNumber.setText("");
+                updateInternetPlanCombobox.setSelectedIndex(0);
+                updateInternetSpeed.setText("");
+                updatePrice.setText("");
+                populateCustomerTable(TableAdminAdd);
+                populateCustomerTable(AdminUpdateTable);
+                JOptionPane.showMessageDialog(this, "Customer updated successfully!");
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Customer not found or update failed!");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a valid Number");
         }
-
-        if (customerController.updateCustomer(customerId, name, phoneNumber, internetPlan, speed, price)) {
-            updateCustomerId.setText("");
-            updateCustomerName.setText("");
-            updatecustomerEmail.setText("");
-            updatePhoneNumber.setText("");
-            updateInternetPlanCombobox.setSelectedIndex(0);
-            updateInternetSpeed.setText("");
-            updatePrice.setText("");
-            JOptionPane.showMessageDialog(this, "Customer updated successfully!");
-            populateTable(AdminUpdateTable);
-        } else {
-            JOptionPane.showMessageDialog(this, "Customer not found or update failed!");
-        }
-
     }//GEN-LAST:event_UpdateCustomerDetailsBtnActionPerformed
 
     private void updateInternetPlanComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInternetPlanComboboxActionPerformed
         // TODO add your handling code here:
-        plans.add(new InternetModel("None", "", ""));
-        plans.add(new InternetModel("Basic Plan", "50 Mbps", "RS 1000"));
-        plans.add(new InternetModel("Standard Plan", "150 Mbps", "RS 1500"));
-        plans.add(new InternetModel("Premium Plan", "250 Mbps", "RS 2500"));
-        plans.add(new InternetModel("Ultra Plan", "500 Mbps", "RS 5000"));
-
         String selectedPlan = (String) updateInternetPlanCombobox.getSelectedItem();
-
-        for (InternetModel plan : plans) {
+        List<InternetModel> priceList = priceController.getAllPlan();
+        for (InternetModel plan : priceList) {
             if (plan.getName().equals(selectedPlan)) {
                 updateInternetSpeed.setText(plan.getSpeed());
-                updatePrice.setText(plan.getPrice());
+                updatePrice.setText(String.valueOf(plan.getPrice()));
                 break;
             }
         }
@@ -1928,7 +2962,6 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel tableModel = (DefaultTableModel) AdminUpdateTable.getModel();
         int selectedRowIndex = AdminUpdateTable.getSelectedRow();
-        System.out.println(selectedRowIndex);
 
         updateCustomerId.setText(tableModel.getValueAt(selectedRowIndex, 0).toString());
         updateCustomerName.setText(tableModel.getValueAt(selectedRowIndex, 1).toString());
@@ -1937,19 +2970,23 @@ public class main extends javax.swing.JFrame {
         updateInternetPlanCombobox.setSelectedItem(tableModel.getValueAt(selectedRowIndex, 4).toString());
         updateInternetSpeed.setText(tableModel.getValueAt(selectedRowIndex, 5).toString());
         updatePrice.setText(tableModel.getValueAt(selectedRowIndex, 6).toString());
-
-
     }//GEN-LAST:event_AdminUpdateTableMouseClicked
 
     private void DeleteBtnAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnAdmin1ActionPerformed
         // TODO add your handling code here:
         String customerId = updateCustomerId.getText();
-        if (customerController.deleteCustomerById(customerId)) {
-            clearAdminUpdateForm();
-            JOptionPane.showMessageDialog(this, "Customer Deleted Succesfully");
-            populateTable(AdminUpdateTable);
+        int response = JOptionPane.showConfirmDialog(null, "Delete customer?", "Delete", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.YES_OPTION) {
+            if (customerController.deleteCustomerById(customerId)) {
+                clearAdminUpdateForm();
+                JOptionPane.showMessageDialog(this, "Customer Deleted Succesfully");
+                populateCustomerTable(AdminUpdateTable);
+            } else {
+                JOptionPane.showMessageDialog(this, "Error deleting customer");
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "Error deleting customer");
+            JOptionPane.showMessageDialog(null, "Deletion cancelled", "Cancelled", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_DeleteBtnAdmin1ActionPerformed
 
@@ -1962,12 +2999,375 @@ public class main extends javax.swing.JFrame {
         updateInternetSpeed.setText("");
         updatePrice.setText("");
     }
+
     private void ClearFormAdminUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearFormAdminUpdateBtnActionPerformed
         // TODO add your handling code here:
         clearAdminUpdateForm();
     }//GEN-LAST:event_ClearFormAdminUpdateBtnActionPerformed
 
-    private void populateTable(JTable tableName) {
+    private void AdminHomeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminHomeBtnActionPerformed
+        // TODO add your handling code here:
+        switchAdminPanels(AdminHomePage);
+        customerCount.setText(String.valueOf(customerController.returnSize()));
+        userCount.setText(String.valueOf(userAuth.getUserCount()));
+        earningCount.setText(String.valueOf(customerController.returnEarnings()));
+        populatePlansTable(PlansTableAdminHome);
+    }//GEN-LAST:event_AdminHomeBtnActionPerformed
+
+    private void navHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navHomeMouseEntered
+        // TODO add your handling code here:
+        navHome.setForeground(new Color(54, 110, 146));
+    }//GEN-LAST:event_navHomeMouseEntered
+
+    private void navHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navHomeMouseExited
+        // TODO add your handling code here:
+        navHome.setForeground(Color.black);
+    }//GEN-LAST:event_navHomeMouseExited
+
+    private void navAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navAdminMouseEntered
+        // TODO add your handling code here:
+        navAdmin.setForeground(new Color(54, 110, 146));
+    }//GEN-LAST:event_navAdminMouseEntered
+
+    private void navAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navAdminMouseExited
+        // TODO add your handling code here:
+        navAdmin.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_navAdminMouseExited
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+        populatePlansTable(PricingTable);
+        switchNavPanels(PricingPage);
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void AddPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPlanBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            String name = PlanNameTextField.getText().trim();
+            String speed = SpeedTextField.getText().trim();
+            int price = Integer.parseInt(PriceTextField.getText());
+
+            if (!isSpeedValid(speed)) {
+                JOptionPane.showMessageDialog(null, "Invalid speed format. Correct format: (number)+ Mbps ", "Invalid ", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if (priceController.addPlan(name, speed, price)) {
+                JOptionPane.showMessageDialog(null, "Plan Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                CustomerInternetPlanComboBox.addItem(name);
+                updateInternetPlanCombobox.addItem(name);
+                planCount.setText(String.valueOf(priceController.planSize()));
+                populatePlansTable(PlansTableAdminHome);
+            } else {
+                JOptionPane.showMessageDialog(null, "Plan name already exists", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Number not valid", "Enter a valid price", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AddPlanBtnActionPerformed
+
+
+    private void PlansTableAdminHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlansTableAdminHomeMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tableModel = (DefaultTableModel) PlansTableAdminHome.getModel();
+        int selectedRowIndex = PlansTableAdminHome.getSelectedRow();
+
+        PlanNameTextField.setText(tableModel.getValueAt(selectedRowIndex, 0).toString());
+        SpeedTextField.setText(tableModel.getValueAt(selectedRowIndex, 1).toString());
+        PriceTextField.setText(tableModel.getValueAt(selectedRowIndex, 2).toString());
+    }//GEN-LAST:event_PlansTableAdminHomeMouseClicked
+
+    private void UpdatePlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatePlanBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            String name = PlanNameTextField.getText().trim();
+            String speed = SpeedTextField.getText().trim();
+            int price = Integer.parseInt(PriceTextField.getText());
+
+            if (!isSpeedValid(speed)) {
+                JOptionPane.showMessageDialog(null, "Invalid speed format. Correct format: (number)+ Mbps ", "Invalid ", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if (priceController.updatePlan(name, speed, price)) {
+                JOptionPane.showMessageDialog(null, "Success", "Plan Updated Successfully", JOptionPane.INFORMATION_MESSAGE);
+                populatePlansTable(PlansTableAdminHome);
+            } else {
+                JOptionPane.showMessageDialog(null, "Plan doesnot exist", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Number not valid", "Enter a valid price", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_UpdatePlanBtnActionPerformed
+
+    private void DeletePlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlanBtnActionPerformed
+        // TODO add your handling code here:
+        String name = PlanNameTextField.getText().trim();
+        int response = JOptionPane.showConfirmDialog(null, "Delete this plan? ", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            if (priceController.deletePlan(name)) {
+                JOptionPane.showMessageDialog(null, "Plan Deleted Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                populatePlansTable(PlansTableAdminHome);
+            } else {
+                JOptionPane.showMessageDialog(null, "Plan doesnot exist", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (response == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, "Plan deletion canceled", "Cancelled", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_DeletePlanBtnActionPerformed
+
+    private void PricingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PricingTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tableModel = (DefaultTableModel) PricingTable.getModel();
+        int selectedRow = PricingTable.getSelectedRow();
+        PlanNameUserInput.setText(tableModel.getValueAt(selectedRow, 0).toString());
+        SpeedUserInput.setText(tableModel.getValueAt(selectedRow, 1).toString());
+        PriceUserInput.setText(tableModel.getValueAt(selectedRow, 2).toString());
+    }//GEN-LAST:event_PricingTableMouseClicked
+
+    private void SubscribeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubscribeBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            String username = UsernameUserInput.getText().trim();
+            String email = EmailUserInput.getText().trim();
+            String phoneNumber = PhoneNumberUserInput.getText().trim();
+            String planName = PlanNameUserInput.getText().trim();
+            String internetSpeed = SpeedUserInput.getText().trim();
+            int internetPrice = Integer.parseInt(PriceUserInput.getText().trim());
+
+            if (username.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "All filed must be filled", "Empty field found", JOptionPane.ERROR_MESSAGE);
+            }
+
+            if (!isValidEmail(email)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!isValidPhoneNumber(phoneNumber)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (customerController.addCustomer(username, email, phoneNumber, planName, internetSpeed, internetPrice)) {
+                JOptionPane.showMessageDialog(null, "Subscription successfull", "Success", JOptionPane.INFORMATION_MESSAGE);
+                populateCustomerTable(TableAdminAdd);
+                populateCustomerTable(AdminUpdateTable);
+                UsernameUserInput.setText("");
+                EmailUserInput.setText("");
+                PhoneNumberUserInput.setText("");
+                PlanNameUserInput.setText("");
+                SpeedUserInput.setText("");
+                PriceUserInput.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Subscription Failed!! ", "Failed", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Enter a valid number", "Invalid", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_SubscribeBtnActionPerformed
+
+    private void ClearPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearPlanBtnActionPerformed
+        // TODO add your handling code here:
+        PlanNameTextField.setText("");
+        SpeedTextField.setText("");
+        PriceTextField.setText("");
+    }//GEN-LAST:event_ClearPlanBtnActionPerformed
+
+    private void AddPlanBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddPlanBtnMouseExited
+        // TODO add your handling code here:
+        AddPlanBtn.setBackground(Color.BLACK);
+        AddPlanBtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_AddPlanBtnMouseExited
+
+    private void AddPlanBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddPlanBtnMouseEntered
+        // TODO add your handling code here:
+        AddPlanBtn.setBackground(new Color(54, 110, 146));
+        AddPlanBtn.setForeground(Color.BLACK);
+    }//GEN-LAST:event_AddPlanBtnMouseEntered
+
+    private void UpdatePlanBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdatePlanBtnMouseEntered
+        // TODO add your handling code here:
+        UpdatePlanBtn.setBackground(new Color(54, 110, 146));
+        UpdatePlanBtn.setForeground(Color.BLACK);
+    }//GEN-LAST:event_UpdatePlanBtnMouseEntered
+
+    private void UpdatePlanBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdatePlanBtnMouseExited
+        // TODO add your handling code here:
+        UpdatePlanBtn.setBackground(Color.BLACK);
+        UpdatePlanBtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_UpdatePlanBtnMouseExited
+
+    private void searchBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnMouseEntered
+        // TODO add your handling code here:
+        searchBtn.setBackground(new Color(0, 102, 204));
+        searchBtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_searchBtnMouseEntered
+
+    private void searchBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnMouseExited
+        // TODO add your handling code here:
+        searchBtn.setBackground(new Color(0, 123, 255));
+        searchBtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_searchBtnMouseExited
+
+    private void LogoutNavBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutNavBtnMouseClicked
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(null, "Confirm login?", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            loadScreen("LoginScreen");
+        } else {
+            JOptionPane.showMessageDialog(null, "Logout cancelled", "cancelled", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_LogoutNavBtnMouseClicked
+
+    private void sortPlanComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortPlanComboBoxActionPerformed
+        // TODO add your handling code here:
+        String value = (String.valueOf(sortPlanComboBox.getSelectedItem()));
+        List<InternetModel> sortedList = selectionsort.sortByPrice(priceController.getAllPlan(), "high to low".equals(value));
+        DefaultTableModel model = (DefaultTableModel) PricingTable.getModel();
+        model.setRowCount(0);
+        for (InternetModel list : sortedList) {
+            Object[] rowData = {
+                list.getName(),
+                list.getSpeed(),
+                list.getPrice()
+            };
+            model.addRow(rowData);
+        }
+    }//GEN-LAST:event_sortPlanComboBoxActionPerformed
+
+    private void ComboBoxInsertionSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxInsertionSortActionPerformed
+        // TODO add your handling code here:
+        String value = (String.valueOf(ComboBoxInsertionSort.getSelectedItem()));
+        if ("sort by name".equals(value)) {
+            List<CustomerModel> sortedList = insertionSort.sortByName(customerController.getAllCustomers());
+            populateInsertionSortTable(sortedList);
+        } else if ("sort by price".equals(value)) {
+            List<CustomerModel> sortedList = insertionSort.sortByPrice(customerController.getAllCustomers());
+            populateInsertionSortTable(sortedList);
+        } else {
+            List<CustomerModel> sortedList = insertionSort.sortById(customerController.getAllCustomers());
+            populateInsertionSortTable(sortedList);
+        }
+    }//GEN-LAST:event_ComboBoxInsertionSortActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        String name = searchTextField.getText();
+        List<CustomerModel> sortedList = insertionSort.sortByName(customerController.getAllCustomers());
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Search field cannot be empty", "Empty search field", JOptionPane.ERROR_MESSAGE);
+        }
+        CustomerModel searchedData = binarySearch.searchByName(name, sortedList, 0, sortedList.size() - 1);
+        if (searchedData != null) {
+            DefaultTableModel model = (DefaultTableModel) TableAdminAdd.getModel();
+            model.setRowCount(0);
+            Object[] rowData = {
+                searchedData.getCustomerId(),
+                searchedData.getName(),
+                searchedData.getEmail(),
+                searchedData.getPhoneNumber(),
+                searchedData.getInternetPlan(),
+                searchedData.getSpeed(),
+                searchedData.getPrice()
+            };
+            model.addRow(rowData);
+        } else {
+            // If no customer is found, show a message
+            JOptionPane.showMessageDialog(null, "No customer found with the name: " + name, "Not Found", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void searchBtnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnUpdateMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnUpdateMouseEntered
+
+    private void searchBtnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnUpdateMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnUpdateMouseExited
+
+    private void searchBtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnUpdateActionPerformed
+        // TODO add your handling code here:
+        String name = searchTextFieldUpdate.getText();
+        List<CustomerModel> sortedList = insertionSort.sortByName(customerController.getAllCustomers());
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Search field cannot be empty", "Empty search field", JOptionPane.ERROR_MESSAGE);
+        }
+        CustomerModel searchedData = binarySearch.searchByName(name, sortedList, 0, sortedList.size() - 1);
+        if (searchedData != null) {
+            DefaultTableModel model = (DefaultTableModel) AdminUpdateTable.getModel();
+            model.setRowCount(0);
+            Object[] rowData = {
+                searchedData.getCustomerId(),
+                searchedData.getName(),
+                searchedData.getEmail(),
+                searchedData.getPhoneNumber(),
+                searchedData.getInternetPlan(),
+                searchedData.getSpeed(),
+                searchedData.getPrice()
+            };
+            model.addRow(rowData);
+            searchTextFieldUpdate.setText("");
+        } else {
+            // If no customer is found, show a message
+            JOptionPane.showMessageDialog(null, "No customer found with the name: " + name, "Not Found", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_searchBtnUpdateActionPerformed
+
+    private void displayAllCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllCustomerActionPerformed
+        // TODO add your handling code here:
+        List<CustomerModel> sortedList = mergeSort.sortByName(customerController.getAllCustomers());
+        DefaultTableModel model = (DefaultTableModel) AdminUpdateTable.getModel();
+        model.setRowCount(0);
+        for (CustomerModel list : sortedList) {
+            Object[] rowData = {
+                list.getCustomerId(),
+                list.getName(),
+                list.getEmail(),
+                list.getPhoneNumber(),
+                list.getInternetPlan(),
+                list.getSpeed(),
+                list.getPrice()
+            };
+            model.addRow(rowData);
+        }
+
+    }//GEN-LAST:event_displayAllCustomerActionPerformed
+
+    private void populateInsertionSortTable(List<CustomerModel> sortedList) {
+        DefaultTableModel model = (DefaultTableModel) TableAdminAdd.getModel();
+        model.setRowCount(0);
+        for (CustomerModel list : sortedList) {
+            Object[] rowData = {
+                list.getCustomerId(),
+                list.getName(),
+                list.getEmail(),
+                list.getPhoneNumber(),
+                list.getInternetPlan(),
+                list.getSpeed(),
+                list.getPrice()
+            };
+            model.addRow(rowData);
+        }
+    }
+
+    private boolean isSpeedValid(String speed) {
+        return speed.matches("^\\d+\\s*Mbps$");
+    }
+
+    private void populatePlansTable(JTable tableName) {
+        DefaultTableModel model = (DefaultTableModel) tableName.getModel();
+        model.setRowCount(0);
+
+        List<InternetModel> price = priceController.getAllPlan();
+        for (InternetModel internet : price) {
+            Object[] rowData = {
+                internet.getName(),
+                internet.getSpeed(),
+                internet.getPrice()
+            };
+            model.addRow(rowData);
+        }
+    }
+
+    private void populateCustomerTable(JTable tableName) {
         DefaultTableModel model = (DefaultTableModel) tableName.getModel();
         model.setRowCount(0);
 
@@ -1984,7 +3384,6 @@ public class main extends javax.swing.JFrame {
             };
             model.addRow(rowData);
         }
-
     }
 
     /**
@@ -2023,20 +3422,29 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddPlanBtn;
     private javax.swing.JPanel AdminAdd;
     private javax.swing.JButton AdminAddBtn;
     private javax.swing.JPanel AdminAddPage;
     private javax.swing.JScrollPane AdminAddScrollPane;
     private javax.swing.JPanel AdminForUserPnl;
+    private javax.swing.JPanel AdminHome;
+    private javax.swing.JButton AdminHomeBtn;
+    private javax.swing.JPanel AdminHomePage;
+    private javax.swing.JScrollPane AdminHomeScroll;
+    private javax.swing.JLabel AdminHomeTitle;
     private javax.swing.JButton AdminLogoutBtn;
     private javax.swing.JPanel AdminPage;
     private javax.swing.JPanel AdminPagePnl;
     private javax.swing.JButton AdminUpdateBtn;
     private javax.swing.JPanel AdminUpdatePage;
+    private javax.swing.JScrollPane AdminUpdateScrollPane;
     private javax.swing.JTable AdminUpdateTable;
     private javax.swing.JLabel Adminwlc;
     private javax.swing.JButton ClearBtnAdmin;
     private javax.swing.JButton ClearFormAdminUpdateBtn;
+    private javax.swing.JButton ClearPlanBtn;
+    private javax.swing.JComboBox<String> ComboBoxInsertionSort;
     private javax.swing.JButton CustomerAddBtnAdmin;
     private javax.swing.JTextField CustomerEmailField;
     private javax.swing.JComboBox<String> CustomerInternetPlanComboBox;
@@ -2044,10 +3452,14 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField CustomerInternetSpeedField;
     private javax.swing.JTextField CustomerNameField;
     private javax.swing.JTextField CustomerPhoneField;
+    private javax.swing.JPanel CustomerUpdatePnl;
     private javax.swing.JButton DeleteBtnAdmin1;
+    private javax.swing.JButton DeletePlanBtn;
     private javax.swing.JPanel DetailForm;
     private javax.swing.JPanel DetailForm1;
+    private javax.swing.JPanel EarningContainer;
     private javax.swing.JLabel Email;
+    private javax.swing.JTextField EmailUserInput;
     private javax.swing.JButton GotoLogin;
     private javax.swing.JButton GotoSingup;
     private javax.swing.JPanel HomePage;
@@ -2059,19 +3471,51 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Logo1;
     private javax.swing.JLabel Logo2;
     private javax.swing.JButton LogoutNavBtn;
+    private javax.swing.JLabel ManagePlansAdminHome;
     private javax.swing.JLabel Name;
     private javax.swing.JPanel Navbar;
     private javax.swing.JLabel NotAdminMsg;
     private javax.swing.JLabel PhoneNumber;
+    private javax.swing.JTextField PhoneNumberUserInput;
+    private javax.swing.JLabel PlanNameManagePlans;
+    private javax.swing.JLabel PlanNameManagePlans1;
+    private javax.swing.JTextField PlanNameTextField;
+    private javax.swing.JTextField PlanNameUserInput;
+    private javax.swing.JLabel PlansHeaderText;
+    private javax.swing.JTable PlansTableAdminHome;
+    private javax.swing.JScrollPane PlansTableAdminHomeScrollPane;
+    private javax.swing.JLabel PriceManagePlans;
+    private javax.swing.JLabel PriceManagePlans2;
+    private javax.swing.JLabel PriceManagePlans3;
+    private javax.swing.JLabel PriceManagePlans4;
+    private javax.swing.JTextField PriceTextField;
+    private javax.swing.JTextField PriceUserInput;
     private javax.swing.JPanel PricingPage;
-    private javax.swing.JScrollPane PricingPageScrollPane;
+    private javax.swing.JTable PricingTable;
     private javax.swing.JScrollPane ScrollPanelAdminUpdate;
     private javax.swing.JButton SignupBtn;
     private javax.swing.JLabel Speed;
+    private javax.swing.JLabel SpeedManagePlans;
+    private javax.swing.JLabel SpeedManagePlans1;
+    private javax.swing.JLabel SpeedManagePlans2;
+    private javax.swing.JTextField SpeedTextField;
+    private javax.swing.JTextField SpeedUserInput;
+    private javax.swing.JButton SubscribeBtn;
+    private javax.swing.JTable TableAdminAdd;
+    private javax.swing.JLabel UpdateAdminTitle;
     private javax.swing.JButton UpdateCustomerDetailsBtn;
+    private javax.swing.JButton UpdatePlanBtn;
+    private javax.swing.JTextField UsernameUserInput;
     private javax.swing.JPanel adminContainer;
     private javax.swing.JLabel adminIcon;
     private javax.swing.JPanel adminNavpnl;
+    private javax.swing.JLabel customerCount;
+    private javax.swing.JLabel customerCount1;
+    private javax.swing.JPanel customerCountPln;
+    private javax.swing.JLabel customerId;
+    private javax.swing.JButton displayAllCustomer;
+    private javax.swing.JLabel earningCount;
+    private javax.swing.JLabel email;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel headingLogin;
     private javax.swing.JLabel headingSingup;
@@ -2081,35 +3525,51 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel heroSectionjLabel4;
     private javax.swing.JLabel heroSectionjLabel5;
     private javax.swing.JPanel hero_section_pnl;
+    private javax.swing.JLabel internetPlan;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JButton loginBtn;
     private javax.swing.JPanel loginFormPanel;
     private javax.swing.JPasswordField loginPasswordField;
@@ -2119,6 +3579,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel logoPanel;
     private javax.swing.JPanel logoPanel1;
     private javax.swing.JPanel mainPnl;
+    private javax.swing.JLabel name;
     private javax.swing.JLabel navAdmin;
     private javax.swing.JLabel navBuyPlan;
     private javax.swing.JLabel navHome;
@@ -2127,13 +3588,27 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel pages_container;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel passwordLabel1;
+    private javax.swing.JLabel phone;
+    private javax.swing.JLabel planCount;
+    private javax.swing.JPanel planCountPnl;
     private javax.swing.JLabel price;
+    private javax.swing.JLabel pricePerMonth;
     private javax.swing.JPanel pricing_page_pnl;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchBtnUpdate;
+    private javax.swing.JLabel searchIcon;
+    private javax.swing.JLabel searchIconUpdate;
+    private javax.swing.JPanel searchPnl;
+    private javax.swing.JPanel searchPnlUpdate;
+    private javax.swing.JTextField searchTextField;
+    private javax.swing.JTextField searchTextFieldUpdate;
     private javax.swing.JTextField signupEmailField;
     private javax.swing.JPanel signupFormPanel;
     private javax.swing.JPasswordField signupPasswordField;
     private javax.swing.JPanel signupPnl;
     private javax.swing.JTextField signupUsernameField;
+    private javax.swing.JComboBox<String> sortPlanComboBox;
+    private javax.swing.JLabel speed;
     private javax.swing.JTextField updateCustomerId;
     private javax.swing.JTextField updateCustomerName;
     private javax.swing.JComboBox<String> updateInternetPlanCombobox;
@@ -2141,6 +3616,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField updatePhoneNumber;
     private javax.swing.JTextField updatePrice;
     private javax.swing.JTextField updatecustomerEmail;
+    private javax.swing.JLabel userCount;
+    private javax.swing.JPanel userCountPnl;
     private javax.swing.JLabel userJlabel;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JLabel usernameLabel1;

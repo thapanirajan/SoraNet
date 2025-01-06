@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.soranet.model;
 
 /**
@@ -12,9 +8,9 @@ public class InternetModel {
 
     private String name;
     private String speed;
-    private String price;
+    private int price;
 
-    public InternetModel(String name, String speed, String price) {
+    public InternetModel(String name, String speed, int price) {
         this.name = name;
         this.speed = speed;
         this.price = price;
@@ -28,8 +24,20 @@ public class InternetModel {
         return speed;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
-}
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpeed(String speed) {
+        this.speed = speed;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+}

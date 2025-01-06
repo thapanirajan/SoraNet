@@ -34,7 +34,7 @@ public class UserAuth {
     public boolean signup(String username, String password, String email) {
         // Check if the username already exists
         if (getUserByUsername(username) != null) {
-            return false; // Username already exists
+            return false;
         }
         // Add new user to the system
         users.add(new UserModel(username, password, email));
@@ -52,7 +52,6 @@ public class UserAuth {
         UserModel user = getUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             loggedInUsername = username;
-            System.out.println("Logged in username : " + loggedInUsername);
             return true;
         }
         return false;

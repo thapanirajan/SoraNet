@@ -1,5 +1,7 @@
 package com.soranet.model;
+
 import java.util.UUID;
+
 /**
  *
  * @author thapa
@@ -12,9 +14,9 @@ public class CustomerModel {
     private String phoneNumber;
     private String internetPlan;
     private String speed;
-    private String price;
+    private int price;
 
-    public CustomerModel(String customerId, String name, String email, String phoneNumber, String internetPlan, String speed, String price) {
+    public CustomerModel(String customerId, String name, String email, String phoneNumber, String internetPlan, String speed, int price) {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
@@ -23,8 +25,9 @@ public class CustomerModel {
         this.speed = speed;
         this.price = price;
     }
-    public CustomerModel( String name, String email, String phoneNumber, String internetPlan, String speed, String price) {
-        this.customerId = UUID.randomUUID().toString().substring(0,8);
+
+    public CustomerModel(String name, String email, String phoneNumber, String internetPlan, String speed, int price) {
+        this.customerId = UUID.randomUUID().toString().substring(0, 8);
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -57,7 +60,7 @@ public class CustomerModel {
         return speed;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -85,8 +88,7 @@ public class CustomerModel {
         this.speed = speed;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
-
 }
