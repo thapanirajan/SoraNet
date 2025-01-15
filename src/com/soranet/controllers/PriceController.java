@@ -19,8 +19,8 @@ public class PriceController {
     }
 
     public boolean addPlan(String name, String speed, int price) {
-        for(InternetModel plans: internetList){
-            if(name.equals(plans.getName())){
+        for (InternetModel plans : internetList) {
+            if (name.equals(plans.getName())) {
                 return false;
             }
         }
@@ -65,9 +65,10 @@ public class PriceController {
 
     public final void displayPlans() {
 //        addPlan("None", "", 0);
-        addPlan("Basic Plan", "50 Mbps", 1000);
+        addPlan("Basic Plan", "50 Mbps", 500);
         addPlan("Standard Plan", "150 Mbps", 1500);
         addPlan("Premium Plan", "250 Mbps", 2500);
+        addPlan("Family Plan", "200 Mbps", 2000);
         addPlan("Ultra Plan", "500 Mbps", 5000);
     }
 

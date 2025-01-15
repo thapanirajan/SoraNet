@@ -50,8 +50,7 @@ public class main extends javax.swing.JFrame {
         searchBtn.setForeground(Color.WHITE);
         searchBtnUpdate.setBackground(new Color(0, 123, 255));
         searchBtnUpdate.setForeground(Color.WHITE);
-        populateCustomerTable(TableAdminAdd);
-        populateCustomerTable(AdminUpdateTable);
+        refreshCustomerTables();
 
     }
 
@@ -122,8 +121,6 @@ public class main extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -132,6 +129,7 @@ public class main extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -145,13 +143,13 @@ public class main extends javax.swing.JFrame {
         AdminPage = new javax.swing.JPanel();
         AdminPagePnl = new javax.swing.JPanel();
         adminNavpnl = new javax.swing.JPanel();
-        adminIcon = new javax.swing.JLabel();
         Adminwlc = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         AdminUpdateBtn = new javax.swing.JButton();
         AdminAddBtn = new javax.swing.JButton();
         AdminLogoutBtn = new javax.swing.JButton();
         AdminHomeBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         adminContainer = new javax.swing.JPanel();
         AdminUpdatePage = new javax.swing.JPanel();
         AdminUpdateScrollPane = new javax.swing.JScrollPane();
@@ -673,7 +671,6 @@ public class main extends javax.swing.JFrame {
         });
 
         LoggedInUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        LoggedInUser.setText("username");
 
         userJlabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         userJlabel.setText("logged in as: ");
@@ -764,7 +761,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        ImageHeroSection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/headeImage.jpg"))); // NOI18N
+        ImageHeroSection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/resources/headeImage.jpg"))); // NOI18N
         ImageHeroSection.setText("jLabel7");
 
         jPanel2.setBackground(new java.awt.Color(21, 44, 58));
@@ -809,7 +806,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
             .addGroup(hero_section_pnlLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
         hero_section_pnlLayout.setVerticalGroup(
             hero_section_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -866,97 +863,89 @@ public class main extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel8.setBackground(new java.awt.Color(21, 44, 58));
-        jPanel8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBackground(new java.awt.Color(21, 44, 58));
+        jPanel9.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Explore our plans -->");
-        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Contact Info");
+
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Phone: +1-234-567-890");
+
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Email: support@wifisubscriptions.com");
+
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Quick links");
+
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Home");
+        jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Wifi plans");
+        jLabel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel22MouseClicked(evt);
+                jLabel30MouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel22)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 101, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel22)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel25.setText("Contact Info");
-
-        jLabel26.setText("Phone: +1-234-567-890");
-
-        jLabel27.setText("Email: support@wifisubscriptions.com");
-
-        jLabel28.setText("Quick links");
-
-        jLabel29.setForeground(new java.awt.Color(21, 42, 58));
-        jLabel29.setText("Home");
-
-        jLabel30.setForeground(new java.awt.Color(21, 42, 58));
-        jLabel30.setText("Wifi plans");
-
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("© 2024 Wi-Fi Subscriptions Management System. All Rights Reserved.");
+
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Admin Dashboard");
+        jLabel37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel37MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26)
                     .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jLabel28)
-                    .addComponent(jLabel29))
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel37))
                 .addGap(230, 230, 230)
                 .addComponent(jLabel31)
-                .addGap(143, 143, 143))
+                .addGap(142, 142, 142))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel28)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
                             .addComponent(jLabel31))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel30))
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel37))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel25)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel26)
                         .addGap(19, 19, 19)
                         .addComponent(jLabel27)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
 
         jPanel10.setBackground(new java.awt.Color(54, 110, 146));
@@ -1099,7 +1088,6 @@ public class main extends javax.swing.JFrame {
         HomePagePnlLayout.setHorizontalGroup(
             HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(hero_section_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(HomePagePnlLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1122,9 +1110,9 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(38, 38, 38))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomePagePnlLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         HomePagePnlLayout.setVerticalGroup(
             HomePagePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1142,11 +1130,9 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(68, 68, 68))
         );
 
         HomePageScrollPane.setViewportView(HomePagePnl);
@@ -1155,7 +1141,7 @@ public class main extends javax.swing.JFrame {
         HomePage.setLayout(HomePageLayout);
         HomePageLayout.setHorizontalGroup(
             HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1420, Short.MAX_VALUE)
+            .addGap(0, 1400, Short.MAX_VALUE)
             .addGroup(HomePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomePageLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1186,8 +1172,6 @@ public class main extends javax.swing.JFrame {
         adminNavpnl.setBackground(new java.awt.Color(54, 110, 146));
         adminNavpnl.setMaximumSize(new java.awt.Dimension(277, 729));
         adminNavpnl.setMinimumSize(new java.awt.Dimension(277, 729));
-
-        adminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/user.png"))); // NOI18N
 
         Adminwlc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Adminwlc.setText("Welcome Admin");
@@ -1231,19 +1215,14 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/resources/user.png"))); // NOI18N
+
         javax.swing.GroupLayout adminNavpnlLayout = new javax.swing.GroupLayout(adminNavpnl);
         adminNavpnl.setLayout(adminNavpnlLayout);
         adminNavpnlLayout.setHorizontalGroup(
             adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminNavpnlLayout.createSequentialGroup()
                 .addGroup(adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(adminNavpnlLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(adminNavpnlLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(adminIcon))
-                            .addComponent(Adminwlc)))
                     .addGroup(adminNavpnlLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1253,14 +1232,21 @@ public class main extends javax.swing.JFrame {
                                 .addGroup(adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(AdminUpdateBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                                     .addComponent(AdminHomeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(AdminAddBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(AdminAddBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(adminNavpnlLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(Adminwlc)))
                 .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminNavpnlLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         adminNavpnlLayout.setVerticalGroup(
             adminNavpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminNavpnlLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(adminIcon)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Adminwlc)
                 .addGap(18, 18, 18)
@@ -1303,18 +1289,22 @@ public class main extends javax.swing.JFrame {
         customerId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         customerId.setText("Customer ID : ");
 
+        updateCustomerId.setEditable(false);
         updateCustomerId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        updateCustomerName.setEditable(false);
         updateCustomerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         name.setText(" Name:");
 
+        updatecustomerEmail.setEditable(false);
         updatecustomerEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         email.setText("Email:");
 
+        updatePhoneNumber.setEditable(false);
         updatePhoneNumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         phone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1559,7 +1549,7 @@ public class main extends javax.swing.JFrame {
         searchTextFieldUpdate.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 21, 1, 1));
 
         searchIconUpdate.setBackground(new java.awt.Color(255, 255, 255));
-        searchIconUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/loupe.png"))); // NOI18N
+        searchIconUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/resources/loupe.png"))); // NOI18N
         searchIconUpdate.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
         javax.swing.GroupLayout searchPnlUpdateLayout = new javax.swing.GroupLayout(searchPnlUpdate);
@@ -1584,14 +1574,6 @@ public class main extends javax.swing.JFrame {
         searchBtnUpdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         searchBtnUpdate.setText("Search");
         searchBtnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        searchBtnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                searchBtnUpdateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                searchBtnUpdateMouseExited(evt);
-            }
-        });
         searchBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBtnUpdateActionPerformed(evt);
@@ -1870,7 +1852,7 @@ public class main extends javax.swing.JFrame {
         searchTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 21, 1, 1));
 
         searchIcon.setBackground(new java.awt.Color(255, 255, 255));
-        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/views/images/loupe.png"))); // NOI18N
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/soranet/resources/loupe.png"))); // NOI18N
         searchIcon.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
         javax.swing.GroupLayout searchPnlLayout = new javax.swing.GroupLayout(searchPnl);
@@ -1880,7 +1862,7 @@ public class main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPnlLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(searchIcon)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -2410,7 +2392,7 @@ public class main extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Plan Name", "Speed", "Price per month"
+                "Plan Name", "Speed", "Price per month(Rs)"
             }
         ) {
             Class[] types = new Class [] {
@@ -2457,6 +2439,8 @@ public class main extends javax.swing.JFrame {
         PriceManagePlans2.setText("Username");
         jPanel3.add(PriceManagePlans2);
         PriceManagePlans2.setBounds(20, 50, 70, 15);
+
+        UsernameUserInput.setEditable(false);
         jPanel3.add(UsernameUserInput);
         UsernameUserInput.setBounds(120, 40, 300, 50);
 
@@ -2464,6 +2448,8 @@ public class main extends javax.swing.JFrame {
         PriceManagePlans3.setText("Email");
         jPanel3.add(PriceManagePlans3);
         PriceManagePlans3.setBounds(20, 150, 40, 15);
+
+        EmailUserInput.setEditable(false);
         jPanel3.add(EmailUserInput);
         EmailUserInput.setBounds(120, 140, 300, 50);
 
@@ -2668,7 +2654,7 @@ public class main extends javax.swing.JFrame {
         userCount.setText(String.valueOf(userAuth.getUserCount()));
         planCount.setText(String.valueOf(priceController.planSize()));
         earningCount.setText(String.valueOf(customerController.returnEarnings()));
-        if (userAuth.getLoggedInUsername().equals("admin")) {
+        if (userAuth.isAdmin(userAuth.getLoggedInUsername())) {
             switchMainAdminPanel(AdminPagePnl);
         } else {
             switchMainAdminPanel(AdminForUserPnl);
@@ -2690,6 +2676,8 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
         populatePlansTable(PricingTable);
         switchNavPanels(PricingPage);
+        UsernameUserInput.setText(userAuth.getLoggedInUsername());
+        EmailUserInput.setText(userAuth.getUserByUsername(userAuth.getLoggedInUsername()).getEmail());
     }//GEN-LAST:event_navBuyPlanMouseClicked
 
     /**
@@ -2713,9 +2701,6 @@ public class main extends javax.swing.JFrame {
                 loginUsernameField.setText("");
                 loginPasswordField.setText("");
                 LoggedInUser.setText(userAuth.getLoggedInUsername());
-                if (userAuth.isAdmin(username)) {
-                    AdminPage.setVisible(true);
-                }
                 loadScreen("MainScreen");  // Load main screen after successful login
                 switchNavPanels(HomePage);
             } else {
@@ -2739,27 +2724,28 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String username = signupUsernameField.getText().trim();
         String password = new String(signupPasswordField.getPassword()).trim();
-        String email = signupEmailField.getText().trim();
+        String signupEmail = signupEmailField.getText().trim();
 
         // Validate if the fields are not empty
-        if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty() || signupEmail.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required!", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         // Validate email format
-        if (!isValidEmail(email)) {
+        if (!isValidEmail(signupEmail)) {
             JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         try {
-            if (userAuth.signup(username, password, email)) {
-                JOptionPane.showMessageDialog(this, "Signup successful! You can now log in.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            if (userAuth.signup(username, password, signupEmail)) {
+                JOptionPane.showMessageDialog(this, "Signup successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 signupUsernameField.setText("");
                 signupPasswordField.setText("");
                 signupEmailField.setText("");
-                loadScreen("LoginScreen");
+                loadScreen("MainScreen");
+                LoggedInUser.setText(userAuth.getLoggedInUsername());
                 switchNavPanels(HomePage);
             } else {
                 // Show error message if username already exists
@@ -2802,8 +2788,8 @@ public class main extends javax.swing.JFrame {
     private void CustomerInternetPlanComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerInternetPlanComboBoxActionPerformed
         // TODO add your handling code here:
         String selectedPlan = (String) CustomerInternetPlanComboBox.getSelectedItem();
-        List<InternetModel> internetPlan = priceController.getAllPlan();
-        for (InternetModel plan : internetPlan) {
+        List<InternetModel> internetPlanList = priceController.getAllPlan();
+        for (InternetModel plan : internetPlanList) {
             if (plan.getName().equals(selectedPlan)) {
                 CustomerInternetSpeedField.setText(plan.getSpeed());
                 CustomerInternetPriceField.setText(String.valueOf(plan.getPrice()));
@@ -2846,44 +2832,67 @@ public class main extends javax.swing.JFrame {
     private void CustomerAddBtnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerAddBtnAdminActionPerformed
         // TODO add your handling code here:
         try {
-            String name = CustomerNameField.getText().trim();
-            String email = CustomerEmailField.getText().trim();
+            // Retrieve and trim inputs
+            String customerName = CustomerNameField.getText().trim();
+            String customerEmail = CustomerEmailField.getText().trim();
             String phoneNumber = CustomerPhoneField.getText().trim();
-            String internetPlan = CustomerInternetPlanComboBox.getSelectedItem().toString();
-            String speed = CustomerInternetSpeedField.getText().trim();
-            int price = Integer.parseInt(CustomerInternetPriceField.getText());
-            // Check if any field is empty
-            if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            String selectedInternetPlan = (String) CustomerInternetPlanComboBox.getSelectedItem();
+            String internetSpeed = CustomerInternetSpeedField.getText().trim();
+            String priceInput = CustomerInternetPriceField.getText().trim();
+            
+            customerName = customerName.substring(0, 1).toUpperCase() + customerName.substring(1).toLowerCase();
+
+            // Validate required fields
+            if (customerName.isEmpty() || customerEmail.isEmpty() || phoneNumber.isEmpty()
+                    || selectedInternetPlan == null || internetSpeed.isEmpty() || priceInput.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill all fields.", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            if (!isValidEmail(email)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+            // Parse and validate price input
+            int internetPrice;
+            try {
+                internetPrice = Integer.parseInt(priceInput);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid number for the price.", "Validation Error", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
+            // Validate email
+            if (!isValidEmail(customerEmail)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Validate phone number
             if (!isValidPhoneNumber(phoneNumber)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number.", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            if (customerController.addCustomer(name, email, phoneNumber, internetPlan, speed, price)) {
-                CustomerNameField.setText("");
-                CustomerEmailField.setText("");
-                CustomerPhoneField.setText("");
-                CustomerInternetSpeedField.setText("");
-                CustomerInternetPriceField.setText("");
-                CustomerInternetPlanComboBox.setSelectedIndex(0);
-                populateCustomerTable(TableAdminAdd);
-                populateCustomerTable(AdminUpdateTable);
+            // Add customer and provide feedback
+            boolean isAdded = customerController.addCustomer(customerName, customerEmail, phoneNumber, selectedInternetPlan, internetSpeed, internetPrice);
+            if (isAdded) {
+                JOptionPane.showMessageDialog(this, "Customer added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                clearAddInputFields();
+                refreshCustomerTables();
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to add customer. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                clearAddInputFields();
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid Number.", "Error", JOptionPane.WARNING_MESSAGE);
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_CustomerAddBtnAdminActionPerformed
+
+    private void clearAddInputFields() {
+        CustomerNameField.setText("");
+        CustomerEmailField.setText("");
+        CustomerPhoneField.setText("");
+        CustomerInternetSpeedField.setText("");
+        CustomerInternetPriceField.setText("");
+        CustomerInternetPlanComboBox.setSelectedIndex(0);
+    }
 
     private boolean isValidPhoneNumber(String phoneNumber) {
         // Check if the phone number contains 10 digits
@@ -2899,51 +2908,69 @@ public class main extends javax.swing.JFrame {
     private void UpdateCustomerDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateCustomerDetailsBtnActionPerformed
         // TODO add your handling code here:
         try {
-            String customerId = updateCustomerId.getText().trim();
-            String name = updateCustomerName.getText().trim();
-            String email = updatecustomerEmail.getText().trim();
+            // Retrieve and trim input fields
+            String customerID = updateCustomerId.getText().trim();
+            String customerName = updateCustomerName.getText().trim();
+            String customerEmail = updatecustomerEmail.getText().trim();
             String phoneNumber = updatePhoneNumber.getText().trim();
-            String internetPlan = updateInternetPlanCombobox.getSelectedItem().toString();
-            String speed = updateInternetSpeed.getText().trim();
-            int price = Integer.parseInt(updatePrice.getText());
+            String selectedInternetPlan = (String) updateInternetPlanCombobox.getSelectedItem();
+            String internetSpeed = updateInternetSpeed.getText().trim();
+            String priceInput = updatePrice.getText().trim();
 
+            // Make fields non-editable
             updateInternetSpeed.setEditable(false);
             updatePrice.setEditable(false);
 
-            if (customerId.isEmpty() || name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || internetPlan.isEmpty() || speed.isEmpty()) {
+            // Validate required fields
+            if (customerID.isEmpty() || customerName.isEmpty() || customerEmail.isEmpty() || phoneNumber.isEmpty() || selectedInternetPlan == null || internetSpeed.isEmpty() || priceInput.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please fill in all fields!", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (!isValidEmail(email)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            // Validate price input
+            int internetPrice;
+            try {
+                internetPrice = Integer.parseInt(priceInput);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Enter a valid number for the price.", "Validation Error", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
+            // Validate email
+            if (!isValidEmail(customerEmail)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Validate phone number
             if (!isValidPhoneNumber(phoneNumber)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number.", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            if (customerController.updateCustomer(customerId, name, phoneNumber, internetPlan, speed, price)) {
-                updateCustomerId.setText("");
-                updateCustomerName.setText("");
-                updatecustomerEmail.setText("");
-                updatePhoneNumber.setText("");
-                updateInternetPlanCombobox.setSelectedIndex(0);
-                updateInternetSpeed.setText("");
-                updatePrice.setText("");
-                populateCustomerTable(TableAdminAdd);
-                populateCustomerTable(AdminUpdateTable);
-                JOptionPane.showMessageDialog(this, "Customer updated successfully!");
-
+            // Attempt to update customer
+            boolean isUpdated = customerController.updateCustomer(customerID, customerName, phoneNumber, selectedInternetPlan, internetSpeed, internetPrice);
+            if (isUpdated) {
+                clearUpdateFields();
+                refreshCustomerTables();
+                JOptionPane.showMessageDialog(this, "Customer updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(this, "Customer not found or update failed!");
+                JOptionPane.showMessageDialog(this, "Customer not found or update failed.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Enter a valid Number");
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_UpdateCustomerDetailsBtnActionPerformed
 
+    private void clearUpdateFields() {
+        updateCustomerId.setText("");
+        updateCustomerName.setText("");
+        updatecustomerEmail.setText("");
+        updatePhoneNumber.setText("");
+        updateInternetPlanCombobox.setSelectedIndex(0);
+        updateInternetSpeed.setText("");
+        updatePrice.setText("");
+    }
     private void updateInternetPlanComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInternetPlanComboboxActionPerformed
         // TODO add your handling code here:
         String selectedPlan = (String) updateInternetPlanCombobox.getSelectedItem();
@@ -2974,14 +3001,14 @@ public class main extends javax.swing.JFrame {
 
     private void DeleteBtnAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnAdmin1ActionPerformed
         // TODO add your handling code here:
-        String customerId = updateCustomerId.getText();
+        String customerID = updateCustomerId.getText();
         int response = JOptionPane.showConfirmDialog(null, "Delete customer?", "Delete", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (response == JOptionPane.YES_OPTION) {
-            if (customerController.deleteCustomerById(customerId)) {
+            if (customerController.deleteCustomerById(customerID)) {
                 clearAdminUpdateForm();
                 JOptionPane.showMessageDialog(this, "Customer Deleted Succesfully");
-                populateCustomerTable(AdminUpdateTable);
+                refreshCustomerTables();
             } else {
                 JOptionPane.showMessageDialog(this, "Error deleting customer");
             }
@@ -3034,37 +3061,60 @@ public class main extends javax.swing.JFrame {
         navAdmin.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_navAdminMouseExited
 
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-        // TODO add your handling code here:
-        populatePlansTable(PricingTable);
-        switchNavPanels(PricingPage);
-    }//GEN-LAST:event_jLabel22MouseClicked
-
     private void AddPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPlanBtnActionPerformed
         // TODO add your handling code here:
         try {
-            String name = PlanNameTextField.getText().trim();
-            String speed = SpeedTextField.getText().trim();
-            int price = Integer.parseInt(PriceTextField.getText());
+            // Retrieve and trim input fields
+            String planName = PlanNameTextField.getText().trim();
+            String internetSpeed = SpeedTextField.getText().trim();
+            String priceInput = PriceTextField.getText().trim();
 
-            if (!isSpeedValid(speed)) {
-                JOptionPane.showMessageDialog(null, "Invalid speed format. Correct format: (number)+ Mbps ", "Invalid ", JOptionPane.WARNING_MESSAGE);
+            // Validate required fields
+            if (planName.isEmpty() || internetSpeed.isEmpty() || priceInput.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (priceController.addPlan(name, speed, price)) {
-                JOptionPane.showMessageDialog(null, "Plan Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                CustomerInternetPlanComboBox.addItem(name);
-                updateInternetPlanCombobox.addItem(name);
+
+            // Validate price input
+            int internetPrice;
+            try {
+                internetPrice = Integer.parseInt(priceInput);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Enter a valid price.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Validate internet speed format
+            if (!isSpeedValid(internetSpeed)) {
+                JOptionPane.showMessageDialog(null, "Invalid speed format. Correct format: (number)+ Mbps", "Validation Error", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Attempt to add the plan
+            if (priceController.addPlan(planName, internetSpeed, internetPrice)) {
+                JOptionPane.showMessageDialog(null, "Plan added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                // Update UI components
+                CustomerInternetPlanComboBox.addItem(planName);
+                updateInternetPlanCombobox.addItem(planName);
                 planCount.setText(String.valueOf(priceController.planSize()));
                 populatePlansTable(PlansTableAdminHome);
+
+                // Clear input fields
+                clearPlanInputFields();
             } else {
-                JOptionPane.showMessageDialog(null, "Plan name already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Plan name already exists.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Number not valid", "Enter a valid price", JOptionPane.ERROR_MESSAGE);
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_AddPlanBtnActionPerformed
 
+    private void clearPlanInputFields() {
+        PlanNameTextField.setText("");
+        SpeedTextField.setText("");
+        PriceTextField.setText("");
+    }
 
     private void PlansTableAdminHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlansTableAdminHomeMouseClicked
         // TODO add your handling code here:
@@ -3079,15 +3129,15 @@ public class main extends javax.swing.JFrame {
     private void UpdatePlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatePlanBtnActionPerformed
         // TODO add your handling code here:
         try {
-            String name = PlanNameTextField.getText().trim();
-            String speed = SpeedTextField.getText().trim();
-            int price = Integer.parseInt(PriceTextField.getText());
+            String planName = PlanNameTextField.getText().trim();
+            String internetSpeed = SpeedTextField.getText().trim();
+            int internetPrice = Integer.parseInt(PriceTextField.getText());
 
-            if (!isSpeedValid(speed)) {
+            if (!isSpeedValid(internetSpeed)) {
                 JOptionPane.showMessageDialog(null, "Invalid speed format. Correct format: (number)+ Mbps ", "Invalid ", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            if (priceController.updatePlan(name, speed, price)) {
+            if (priceController.updatePlan(planName, internetSpeed, internetPrice)) {
                 JOptionPane.showMessageDialog(null, "Success", "Plan Updated Successfully", JOptionPane.INFORMATION_MESSAGE);
                 populatePlansTable(PlansTableAdminHome);
             } else {
@@ -3100,10 +3150,10 @@ public class main extends javax.swing.JFrame {
 
     private void DeletePlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlanBtnActionPerformed
         // TODO add your handling code here:
-        String name = PlanNameTextField.getText().trim();
+        String planName = PlanNameTextField.getText().trim();
         int response = JOptionPane.showConfirmDialog(null, "Delete this plan? ", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
-            if (priceController.deletePlan(name)) {
+            if (priceController.deletePlan(planName)) {
                 JOptionPane.showMessageDialog(null, "Plan Deleted Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 populatePlansTable(PlansTableAdminHome);
             } else {
@@ -3126,43 +3176,79 @@ public class main extends javax.swing.JFrame {
     private void SubscribeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubscribeBtnActionPerformed
         // TODO add your handling code here:
         try {
+            // Trim and retrieve user inputs
             String username = UsernameUserInput.getText().trim();
-            String email = EmailUserInput.getText().trim();
+            String custEmail = EmailUserInput.getText().trim();
             String phoneNumber = PhoneNumberUserInput.getText().trim();
             String planName = PlanNameUserInput.getText().trim();
             String internetSpeed = SpeedUserInput.getText().trim();
-            int internetPrice = Integer.parseInt(PriceUserInput.getText().trim());
+            String priceInput = PriceUserInput.getText().trim();
 
-            if (username.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "All filed must be filled", "Empty field found", JOptionPane.ERROR_MESSAGE);
-            }
+            boolean isAllFieldValid = true;
 
-            if (!isValidEmail(email)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+            // Validate required fields
+            if (username.isEmpty() || custEmail.isEmpty() || phoneNumber.isEmpty() || planName.isEmpty() || internetSpeed.isEmpty() || priceInput.isEmpty()) {
+                isAllFieldValid = false;
+                JOptionPane.showMessageDialog(this, "All fields must be filled.", "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
+            int internetPrice;
+            try {
+                internetPrice = Integer.parseInt(priceInput);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Enter a valid number for the price.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                isAllFieldValid = false;
+                return;
+            }
+
+            // Validate email
+            if (!isValidEmail(custEmail)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                isAllFieldValid = false;
+                return;
+            }
+
+            // Validate phone number
             if (!isValidPhoneNumber(phoneNumber)) {
-                JOptionPane.showMessageDialog(this, "Please enter a valid phone number", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter a valid phone number.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+                isAllFieldValid = false;
                 return;
             }
-            if (customerController.addCustomer(username, email, phoneNumber, planName, internetSpeed, internetPrice)) {
-                JOptionPane.showMessageDialog(null, "Subscription successfull", "Success", JOptionPane.INFORMATION_MESSAGE);
-                populateCustomerTable(TableAdminAdd);
-                populateCustomerTable(AdminUpdateTable);
-                UsernameUserInput.setText("");
-                EmailUserInput.setText("");
-                PhoneNumberUserInput.setText("");
-                PlanNameUserInput.setText("");
-                SpeedUserInput.setText("");
-                PriceUserInput.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "Subscription Failed!! ", "Failed", JOptionPane.ERROR_MESSAGE);
+
+            // Add customer and provide feedback
+            boolean isAdded = customerController.addCustomer(username, custEmail, phoneNumber, planName, internetSpeed, internetPrice);
+            if (isAllFieldValid) {
+                if (isAdded) {
+                    JOptionPane.showMessageDialog(this, "Subscription successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    refreshCustomerTables();
+                    clearInputFields();
+                    UsernameUserInput.setText(userAuth.getLoggedInUsername());
+                    EmailUserInput.setText(userAuth.getUserByUsername(userAuth.getLoggedInUsername()).getEmail());
+                } else {
+                    JOptionPane.showMessageDialog(this, "Subscription failed. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                    clearInputFields();
+                    UsernameUserInput.setText(userAuth.getLoggedInUsername());
+                    EmailUserInput.setText(userAuth.getUserByUsername(userAuth.getLoggedInUsername()).getEmail());
+                }
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Enter a valid number", "Invalid", JOptionPane.ERROR_MESSAGE);
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SubscribeBtnActionPerformed
+    private void refreshCustomerTables() {
+        populateCustomerTable(TableAdminAdd);
+        populateCustomerTable(AdminUpdateTable);
+    }
+
+    private void clearInputFields() {
+        UsernameUserInput.setText("");
+        EmailUserInput.setText("");
+        PhoneNumberUserInput.setText("");
+        PlanNameUserInput.setText("");
+        SpeedUserInput.setText("");
+        PriceUserInput.setText("");
+    }
 
     private void ClearPlanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearPlanBtnActionPerformed
         // TODO add your handling code here:
@@ -3249,13 +3335,15 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxInsertionSortActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
-        String name = searchTextField.getText();
+        
+        String customerName = searchTextField.getText().trim();
+        customerName = customerName.substring(0, 1).toUpperCase() + customerName.substring(1).toLowerCase();
         List<CustomerModel> sortedList = insertionSort.sortByName(customerController.getAllCustomers());
-        if (name.isEmpty()) {
+        if (customerName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Search field cannot be empty", "Empty search field", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        CustomerModel searchedData = binarySearch.searchByName(name, sortedList, 0, sortedList.size() - 1);
+        CustomerModel searchedData = binarySearch.searchByName(customerName, sortedList, 0, sortedList.size() - 1);
         if (searchedData != null) {
             DefaultTableModel model = (DefaultTableModel) TableAdminAdd.getModel();
             model.setRowCount(0);
@@ -3270,27 +3358,18 @@ public class main extends javax.swing.JFrame {
             };
             model.addRow(rowData);
         } else {
-            // If no customer is found, show a message
-            JOptionPane.showMessageDialog(null, "No customer found with the name: " + name, "Not Found", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No customer found with the name: " + customerName, "Not Found", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void searchBtnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnUpdateMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchBtnUpdateMouseEntered
-
-    private void searchBtnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnUpdateMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchBtnUpdateMouseExited
-
     private void searchBtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnUpdateActionPerformed
         // TODO add your handling code here:
-        String name = searchTextFieldUpdate.getText();
+        String Custname = searchTextFieldUpdate.getText();
         List<CustomerModel> sortedList = insertionSort.sortByName(customerController.getAllCustomers());
-        if (name.isEmpty()) {
+        if (Custname.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Search field cannot be empty", "Empty search field", JOptionPane.ERROR_MESSAGE);
         }
-        CustomerModel searchedData = binarySearch.searchByName(name, sortedList, 0, sortedList.size() - 1);
+        CustomerModel searchedData = binarySearch.searchByName(Custname, sortedList, 0, sortedList.size() - 1);
         if (searchedData != null) {
             DefaultTableModel model = (DefaultTableModel) AdminUpdateTable.getModel();
             model.setRowCount(0);
@@ -3307,7 +3386,7 @@ public class main extends javax.swing.JFrame {
             searchTextFieldUpdate.setText("");
         } else {
             // If no customer is found, show a message
-            JOptionPane.showMessageDialog(null, "No customer found with the name: " + name, "Not Found", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No customer found with the name: " + Custname, "Not Found", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_searchBtnUpdateActionPerformed
 
@@ -3330,6 +3409,16 @@ public class main extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_displayAllCustomerActionPerformed
+
+    private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
+        // TODO add your handling code here:
+        switchNavPanels(PricingPage);
+    }//GEN-LAST:event_jLabel30MouseClicked
+
+    private void jLabel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseClicked
+        // TODO add your handling code here:
+        switchNavPanels(AdminPage);
+    }//GEN-LAST:event_jLabel37MouseClicked
 
     private void populateInsertionSortTable(List<CustomerModel> sortedList) {
         DefaultTableModel model = (DefaultTableModel) TableAdminAdd.getModel();
@@ -3356,8 +3445,8 @@ public class main extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tableName.getModel();
         model.setRowCount(0);
 
-        List<InternetModel> price = priceController.getAllPlan();
-        for (InternetModel internet : price) {
+        List<InternetModel> priceList = priceController.getAllPlan();
+        for (InternetModel internet : priceList) {
             Object[] rowData = {
                 internet.getName(),
                 internet.getSpeed(),
@@ -3507,7 +3596,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton UpdatePlanBtn;
     private javax.swing.JTextField UsernameUserInput;
     private javax.swing.JPanel adminContainer;
-    private javax.swing.JLabel adminIcon;
     private javax.swing.JPanel adminNavpnl;
     private javax.swing.JLabel customerCount;
     private javax.swing.JLabel customerCount1;
@@ -3534,9 +3622,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -3551,6 +3639,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3565,7 +3654,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

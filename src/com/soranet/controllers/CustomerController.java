@@ -18,6 +18,13 @@ public class CustomerController {
 
     // Add new customer
     public boolean addCustomer(String name, String email, String phoneNumber, String internetPlan, String speed, int price) {
+        // Check if a customer with the same name already exists
+        for (CustomerModel customer : customerList) {
+            if (customer.getName().equalsIgnoreCase(name)) {
+                return false; // Username already exists
+            }
+        }
+        // If no duplicate found, add the new customer
         CustomerModel newCustomer = new CustomerModel(name, email, phoneNumber, internetPlan, speed, price);
         customerList.add(newCustomer);
         return true;

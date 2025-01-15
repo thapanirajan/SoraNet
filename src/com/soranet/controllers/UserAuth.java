@@ -11,6 +11,7 @@ public class UserAuth {
 
     private final String default_username = "alex";
     private final String default_password = "alex123";
+    private final String default_email = "alex@gmail.com";
 
     private String loggedInUsername = null;
 
@@ -20,7 +21,7 @@ public class UserAuth {
     public UserAuth() {
         // Add default admin and user to the list
         users.add(new UserModel(Admin_username, Admin_password));
-        users.add(new UserModel(default_username, default_password));
+        users.add(new UserModel(default_username, default_password, default_email));
     }
 
     /**
@@ -36,6 +37,7 @@ public class UserAuth {
         if (getUserByUsername(username) != null) {
             return false;
         }
+        loggedInUsername = username;
         // Add new user to the system
         users.add(new UserModel(username, password, email));
         return true;
@@ -92,7 +94,7 @@ public class UserAuth {
      * @param username Username to search for
      * @return The UserModel if found, otherwise null
      */
-    private UserModel getUserByUsername(String username) {
+    public UserModel getUserByUsername(String username) {
         for (UserModel user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
